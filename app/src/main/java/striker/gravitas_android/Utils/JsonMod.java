@@ -1,7 +1,5 @@
 package striker.gravitas_android.Utils;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -30,7 +28,6 @@ public class JsonMod {
             jsonObject1 = jsonElement.getAsJsonObject();
             List<String> strings = gson.fromJson(jsonObject1.get("organization"), new TypeToken<List<String>>() {
             }.getType());
-            Log.d("modify", strings.toString());
             for (int i = 0; i < strings.size(); i++) {
                 JsonObject object = new JsonObject();
                 object.addProperty("organization", strings.get(i));
