@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import striker.gravitas_android.R;
 import striker.gravitas_android.api.ApiRequests;
@@ -34,7 +33,6 @@ public class Splashscreen extends AppCompatActivity {
                 ApiRequests apiRequests = new ApiRequests();
                 apiRequests.getEvents();
 
-                Log.d("AfterCall2", "Splashscreen");
 
                 //Change the intent to whatever the activity name is.
                 Intent intent = new Intent(Splashscreen.this, Home.class);
