@@ -4,11 +4,15 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by root on 24/7/16.
  */
 public class Coordinator extends RealmObject {
+
+    @PrimaryKey
+    private int k;
 
     @SerializedName("phone")
     @Expose
@@ -81,5 +85,13 @@ public class Coordinator extends RealmObject {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getK() {
+        return k;
+    }
+
+    public void setK(int k) {
+        this.k = k;
     }
 }

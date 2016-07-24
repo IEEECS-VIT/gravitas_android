@@ -1,5 +1,7 @@
 package striker.gravitas_android.api;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -42,12 +44,19 @@ public class ApiRequests implements Values {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
                 String json = jsonMod.modifyJson(response.body());
+
+                Log.d("Call", json);
                 Db db = gson.fromJson(json, Db.class);
+
+                Log.d("Call2", json);
                 Realm realm = Realm.getDefaultInstance();
                 realm.beginTransaction();
                 realm.copyToRealmOrUpdate(db);
                 realm.commitTransaction();
                 realm.close();
+
+                Log.d("AfterCall", "RealmDone");
+
             }
 
             @Override

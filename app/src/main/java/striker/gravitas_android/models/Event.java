@@ -5,12 +5,14 @@ import com.google.gson.annotations.SerializedName;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by root on 24/7/16.
  */
 public class Event extends RealmObject {
 
+    @PrimaryKey
     @SerializedName("name")
     @Expose
     private String name;
@@ -25,7 +27,7 @@ public class Event extends RealmObject {
 
     @SerializedName("org")
     @Expose
-    private RealmList<Org> orgs;
+    private RealmList<Org> org;
 
     @SerializedName("coordinators")
     @Expose
@@ -48,7 +50,7 @@ public class Event extends RealmObject {
         this.name = name;
         this.category = category;
         this.subCategory = subCategory;
-        this.orgs = orgs;
+        this.org = orgs;
         this.coordinators = coordinators;
         this.description = description;
         this.teamSize = teamSize;
@@ -83,11 +85,11 @@ public class Event extends RealmObject {
     }
 
     public RealmList<Org> getOrgs() {
-        return orgs;
+        return org;
     }
 
     public void setOrgs(RealmList<Org> orgs) {
-        this.orgs = orgs;
+        this.org = orgs;
     }
 
     public RealmList<Coordinator> getCoordinators() {

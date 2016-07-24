@@ -6,11 +6,15 @@ import com.google.gson.annotations.SerializedName;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by root on 24/7/16.
  */
 public class Db extends RealmObject {
+
+    @PrimaryKey
+    private int k;
 
     @SerializedName("events")
     @Expose
@@ -30,5 +34,13 @@ public class Db extends RealmObject {
 
     public void setEvents(RealmList<Event> events) {
         this.events = events;
+    }
+
+    public int getK() {
+        return k;
+    }
+
+    public void setK(int k) {
+        this.k = k;
     }
 }
