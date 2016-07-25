@@ -29,7 +29,6 @@ public class Splashscreen extends AppCompatActivity {
         //Splashcreen will be launched every time user opens the app and data will be updated.
 
         //TODO - Check network connectivity, and if data is null, then do not launch Home.
-        //TODO - Splashscreen Layout
 
         animatedSvgView = (AnimatedSvgView)findViewById(R.id.animated_svg_view);
         animatedSvgView.postDelayed(new Runnable() {
@@ -45,12 +44,9 @@ public class Splashscreen extends AppCompatActivity {
             public void run() {
                 ApiRequests apiRequests = new ApiRequests();
                 apiRequests.getEvents();
-
-
                 //Change the intent to whatever the activity name is.
                 Intent intent = new Intent(Splashscreen.this, Home.class);
                 startActivity(intent);
-                finish();
             }
         }, timeout);
     }

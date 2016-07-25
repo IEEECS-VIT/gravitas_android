@@ -2,13 +2,18 @@ package striker.gravitas_android.activities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +21,9 @@ import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import com.szugyi.circlemenu.view.CircleImageView;
+import com.szugyi.circlemenu.view.CircleLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +34,10 @@ import striker.gravitas_android.navigationDrawer.adapter.CustomExpandableListAda
 import striker.gravitas_android.navigationDrawer.datasource.ExpandableListDataSource;
 
 public class Home extends AppCompatActivity {
+
+    Toolbar toolbar = null;
+    int height,width;
+
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
@@ -40,11 +52,45 @@ public class Home extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setNavigationDrawer();
+
+        de.hdodenhof.circleimageview.CircleImageView civMiddle = (de.hdodenhof.circleimageview.CircleImageView)findViewById(R.id.circleImageViewMiddle);
+        civMiddle.setPadding(50,(height/3)-300,50,(2*height/3)-300);
+        civMiddle.setImageResource(R.drawable.graivtas16);
+
+        CircleLayout cl = (CircleLayout)findViewById(R.id.circle_layout);
+        CoordinatorLayout.LayoutParams clParams = new CoordinatorLayout.LayoutParams(width+100,width+100);
+        clParams.setMargins(-50,0,0,0);
+        cl.setLayoutParams(clParams);
+
+        for(int i=0;i<13;i++){
+            CircleImageView civ = new CircleImageView(getApplicationContext());
+            civ.setLayoutParams(new CircleLayout.LayoutParams(100,100));
+            civ.setImageResource(R.drawable.ic_circle_check);
+            cl.addView(civ);
+
+            civ.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view,"HEY THERE",Snackbar.LENGTH_LONG).show();
+                }
+            });
+
+        }
+
     }
 
     private void setNavigationDrawer() {
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        height = size.y;
+        width = size.x;
+
+        AppBarLayout appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout);
+        appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(width,height/3));
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

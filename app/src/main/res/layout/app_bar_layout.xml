@@ -7,6 +7,7 @@
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -19,6 +20,13 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
+
+    <com.szugyi.circlemenu.view.CircleLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/circle_layout">
+
+    </com.szugyi.circlemenu.view.CircleLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
