@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 
+import com.jrummyapps.android.widget.AnimatedSvgView;
+
 import striker.gravitas_android.R;
 import striker.gravitas_android.api.ApiRequests;
 
@@ -15,6 +17,10 @@ public class Splashscreen extends AppCompatActivity {
     //timeout in ms
     private int timeout = 3000;
 
+    private AnimatedSvgView animatedSvgView;
+    private int index = -1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +28,16 @@ public class Splashscreen extends AppCompatActivity {
 
         //Splashcreen will be launched every time user opens the app and data will be updated.
 
-        //TO DO - Check network connectivity, and if data is null, then do not launch Home.
-        //TO DO - Splashscreen Layout
+        //TODO - Check network connectivity, and if data is null, then do not launch Home.
+        //TODO - Splashscreen Layout
 
+        animatedSvgView = (AnimatedSvgView)findViewById(R.id.animated_svg_view);
+        animatedSvgView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                animatedSvgView.start();
+            }
+        },300);
         //Network request takes longer than timeout set.
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
