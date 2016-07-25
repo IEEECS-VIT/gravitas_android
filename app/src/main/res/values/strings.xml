@@ -1,3 +1,43 @@
 <resources>
     <string name="app_name">gravitas_android</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="nav_list">
+        <item>Home</item>
+        <item>Wishlist</item>
+        <item>Categories</item>
+        <item>About Gravitas</item>
+        <item>Contact Us</item>
+    </string-array>
+
+    <string-array name="Home">
+    </string-array>
+
+    <string-array name="Wishlist">
+    </string-array>
+
+    <string-array name="Categories">
+        <item>Premium</item>
+        <item>Workshops</item>
+        <item>Builtrix</item>
+        <item>Applied Engineering</item>
+        <item>Bits and Bytes</item>
+        <item>Circuitrix</item>
+        <item>Robotics</item>
+        <item>Management</item>
+        <item>Biotechnology</item>
+        <item>Science and Technology</item>
+        <item>Informals</item>
+        <item>Quiz</item>
+        <item>Online</item>
+        <item>SSIC</item>
+    </string-array>
+
+    <string-array name="About">
+    </string-array>
+
+    <string-array name="contact">
+    </string-array>
 </resources>
