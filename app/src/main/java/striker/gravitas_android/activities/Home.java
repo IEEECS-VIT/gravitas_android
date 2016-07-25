@@ -1,5 +1,6 @@
 package striker.gravitas_android.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -94,6 +95,9 @@ public class Home extends AppCompatActivity {
                         .get(childPosition).toString();
                 getSupportActionBar().setTitle(selectedItem);
                 mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString() + " -> " + selectedItem);
+                Intent intent = new Intent(getApplicationContext(), CategoryActivity.class)
+                        .putExtra(CategoryActivity.category_key,selectedItem);
+                startActivity(intent);
                 mDrawerLayout.closeDrawer(GravityCompat.START);
                 return false;
             }
