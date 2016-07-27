@@ -19,13 +19,13 @@ public class JsonMod {
 
     public JsonMod() {
         gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setExclusionStrategies(new RealmExclusionStrategy()).create();
-        jsonArray1 = new JsonArray();
     }
 
     public String modifyJson(JsonObject data) {
         jsonArray = data.getAsJsonArray("events");
         for (JsonElement jsonElement : jsonArray) {
             jsonObject1 = jsonElement.getAsJsonObject();
+            jsonArray1 = new JsonArray();
             List<String> strings = gson.fromJson(jsonObject1.get("organization"), new TypeToken<List<String>>() {
             }.getType());
             for (int i = 0; i < strings.size(); i++) {
@@ -36,6 +36,11 @@ public class JsonMod {
             //jsonArray = gson.fromJson(array,JsonArray.class).getAsJsonArray();
             jsonObject1.remove("organization");
             jsonObject1.add("org", jsonArray1);
+
+            if (jsonObject1.get("category").getAsString().equalsIgnoreCase("workshop")) {
+                jsonObject1.remove("subCategory");
+                jsonObject1.addProperty("subCategory", "Workshop");
+            }
         }
         return data.toString();
     }
