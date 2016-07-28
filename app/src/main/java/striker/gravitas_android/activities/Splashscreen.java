@@ -6,16 +6,30 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.jrummyapps.android.widget.AnimatedSvgView;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import io.realm.Realm;
 import striker.gravitas_android.R;
+import striker.gravitas_android.Utils.JsonMod;
+import striker.gravitas_android.Utils.RealmExclusionStrategy;
+import striker.gravitas_android.Utils.Values;
 import striker.gravitas_android.api.ApiRequests;
+import striker.gravitas_android.models.Db;
 
-public class Splashscreen extends AppCompatActivity {
+public class Splashscreen extends AppCompatActivity implements Values{
 
+    Gson gson;
+    JsonMod jsonMod;
 
     //timeout in ms
-    private int timeout = 3000;
+    private int timeout = 1000;
 
     private AnimatedSvgView animatedSvgView;
     private int index = -1;
@@ -25,6 +39,16 @@ public class Splashscreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
+
+        jsonMod = new JsonMod();
+        gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setExclusionStrategies(new RealmExclusionStrategy()).create();
+        String json = loadJSONFromAsset();
+        Db db = gson.fromJson(gson.fromJson(json,JsonObject.class), Db.class);
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        realm.copyToRealmOrUpdate(db);
+        realm.commitTransaction();
+        realm.close();
 
         //Splashcreen will be launched every time user opens the app and data will be updated.
 
@@ -49,6 +73,22 @@ public class Splashscreen extends AppCompatActivity {
                 startActivity(intent);
             }
         }, timeout);
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getAssets().open("initial.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
 }
