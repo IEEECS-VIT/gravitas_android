@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,13 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmList;
 import striker.gravitas_android.R;
 import striker.gravitas_android.Utils.RecyclerViewOnClickListener;
 import striker.gravitas_android.Utils.dummyCategoryClass;
+import striker.gravitas_android.models.Event;
+import striker.gravitas_android.models.Org;
 
 /**
  * Created by HP on 7/26/2016.
@@ -27,6 +32,8 @@ public class EventListFragment extends Fragment {
     private View view;
     private int category;
     private EventListAdapter eventAdapter;
+    private List<Event> events;
+    private RealmList<Org> orgs;
     private static List<dummyCategoryClass> dummyList = new ArrayList<dummyCategoryClass>();
     public EventListFragment() {
 
@@ -68,15 +75,17 @@ public class EventListFragment extends Fragment {
     }
 
     private void populateDummyClass() {
-        String[][] event = {{"event1", "event2", "event3", "event4", "event5", "event6", "event7", "event8", "event9", "event10"},
-                {"club1","club2","club3","club4","club5","club6","club7","club8","club9","club10"}};
-
+        Realm realm = Realm.getDefaultInstance();
+        String[] currentTab = getResources().getStringArray(R.array.Categories);
+        events = realm.where(Event.class).equalTo("subCategory",currentTab[category].toLowerCase()).findAll();
         dummyList.clear();
-        for(int i=0;i<10;i++){
-            dummyList.add(new dummyCategoryClass(event[0][i],event[1][i],R.drawable.ic_circle_check));
+        for(int i=0;i<events.size();i++){
+            orgs = events.get(i).getOrgs();
+            String organizations = orgs.get(0).getOrganization();
+            for(int j=1;j<orgs.size();j++){
+                organizations = organizations + "," + orgs.get(j).getOrganization();
+            }
+            dummyList.add(new dummyCategoryClass(events.get(i).getName(),organizations,R.drawable.ic_circle_check));
         }
-
     }
-
-
 }

@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -29,7 +30,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
 import striker.gravitas_android.R;
+import striker.gravitas_android.models.Event;
 import striker.gravitas_android.navigationDrawer.adapter.CustomExpandableListAdapter;
 import striker.gravitas_android.navigationDrawer.datasource.ExpandableListDataSource;
 
@@ -47,6 +51,7 @@ public class Home extends AppCompatActivity {
     private List<String> mExpandableListTitle;
     private Map<String, List<String>> mExpandableListData;
     private TextView mSelectedItemView;
+    private List<Event> eventList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,16 +67,22 @@ public class Home extends AppCompatActivity {
         clParams.setMargins(-50,0,0,0);
         cl.setLayoutParams(clParams);
 
-        for(int i=0;i<13;i++){
-            CircleImageView civ = new CircleImageView(getApplicationContext());
+        final String[] subCategories = getResources().getStringArray(R.array.Categories);
+
+
+        for(int i=0;i<subCategories.length;i++){
+            final CircleImageView civ = new CircleImageView(getApplicationContext());
             civ.setLayoutParams(new CircleLayout.LayoutParams(100,100));
             civ.setImageResource(R.drawable.ic_circle_check);
+            civ.setContentDescription(subCategories[i]);
             cl.addView(civ);
 
             civ.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Snackbar.make(view,"HEY THERE",Snackbar.LENGTH_LONG).show();
+                    //Snackbar.make(view,"HEY THERE",Snackbar.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), CategoryActivity.class).putExtra(CategoryActivity.category_key,civ.getContentDescription());
+                    startActivity(intent);
                 }
             });
 

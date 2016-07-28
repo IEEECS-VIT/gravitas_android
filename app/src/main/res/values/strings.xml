@@ -19,20 +19,16 @@
     </string-array>
 
     <string-array name="Categories">
-        <item>Premium</item>
-        <item>Workshops</item>
-        <item>Builtrix</item>
-        <item>Applied Engineering</item>
-        <item>Bits and Bytes</item>
-        <item>Circuitrix</item>
+        <item>Debate - Discussion</item>
+        <item>Chemical/Bio</item>
         <item>Robotics</item>
-        <item>Management</item>
-        <item>Biotechnology</item>
-        <item>Science and Technology</item>
-        <item>Informals</item>
+        <item>Circuitrix</item>
+        <item>Builtrix</item>
         <item>Quiz</item>
+        <item>Applied Engineering</item>
         <item>Online</item>
-        <item>SSIC</item>
+        <item>Informals</item>
+        <item>Bits and Bytes</item>
     </string-array>
 
     <string-array name="About">
