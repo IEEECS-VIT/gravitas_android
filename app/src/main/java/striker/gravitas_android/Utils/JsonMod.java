@@ -1,5 +1,7 @@
 package striker.gravitas_android.Utils;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -37,11 +39,19 @@ public class JsonMod {
             jsonObject1.remove("organization");
             jsonObject1.add("org", jsonArray1);
 
+            if (jsonObject1.get("name").getAsString().contains("\n")) {
+                String tempName = jsonObject1.get("name").getAsString();
+                tempName.replace("\n", "");
+                jsonObject1.remove("name");
+                jsonObject1.addProperty("name", tempName);
+            }
+
             if (jsonObject1.get("category").getAsString().equalsIgnoreCase("workshop")) {
                 jsonObject1.remove("subCategory");
                 jsonObject1.addProperty("subCategory", "Workshop");
             }
         }
+        Log.d("T", data.toString());
         return data.toString();
     }
 
