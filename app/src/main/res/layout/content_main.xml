@@ -12,10 +12,5 @@
     tools:context="striker.gravitas_android.activities.Home"
     tools:showIn="@layout/app_bar_layout">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/selected_item"
-        android:text="Hello World!" />
 
 </RelativeLayout>

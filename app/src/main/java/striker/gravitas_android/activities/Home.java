@@ -100,13 +100,18 @@ public class Home extends AppCompatActivity {
         AppBarLayout appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout);
         appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(width,height/3));
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("graVITas2k16");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
 
         mExpandableListView = (ExpandableListView) findViewById(R.id.navList);
-        mSelectedItemView = (TextView) findViewById(R.id.selected_item);
+        //mSelectedItemView = (TextView) findViewById(R.id.selected_item);
 
         LayoutInflater inflater = getLayoutInflater();
         //View listHeaderView = inflater.inflate(R.layout.nav_header, null, false);
@@ -118,8 +123,7 @@ public class Home extends AppCompatActivity {
         addDrawerItems();
         setupDrawer();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+
 
     }
 
@@ -130,8 +134,7 @@ public class Home extends AppCompatActivity {
         mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
-                getSupportActionBar().setTitle(mExpandableListTitle.get(groupPosition).toString());
-                mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString());
+                //mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString());
                 mDrawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -148,8 +151,7 @@ public class Home extends AppCompatActivity {
                                         int groupPosition, int childPosition, long id) {
                 String selectedItem = ((List) (mExpandableListData.get(mExpandableListTitle.get(groupPosition))))
                         .get(childPosition).toString();
-                getSupportActionBar().setTitle(selectedItem);
-                mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString() + " -> " + selectedItem);
+                //mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString() + " -> " + selectedItem);
 
                 SharedPreferences sharedprefs = getSharedPreferences(CategoryActivity.category_key, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedprefs.edit();
@@ -177,7 +179,7 @@ public class Home extends AppCompatActivity {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                getSupportActionBar().setTitle(mActivityTitle);
+                //getSupportActionBar().setTitle(mActivityTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };

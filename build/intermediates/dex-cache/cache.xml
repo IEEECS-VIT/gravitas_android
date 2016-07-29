@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\Users\HP\AndroidStudioProjects\gravitas_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="0d136266b38aa142dfaa22f98a88af68ecd0a50e">
-        <dex dex="C:\Users\HP\AndroidStudioProjects\gravitas_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_732ad07ef2c93d537b49d7295e155a4cdff52324\classes.dex" />
-    </item>
-
-</items>
