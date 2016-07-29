@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.jrummyapps.android.widget.AnimatedSvgView;
 
@@ -44,7 +42,6 @@ public class Splashscreen extends AppCompatActivity implements Values{
         jsonMod = new JsonMod();
         gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setExclusionStrategies(new RealmExclusionStrategy()).create();
         String json = loadJSONFromAsset();
-        Log.d("Json",json);
         Db db = gson.fromJson(jsonMod.modifyJson(gson.fromJson(json,JsonObject.class)), Db.class);
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();

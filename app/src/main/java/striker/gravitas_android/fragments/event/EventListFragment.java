@@ -2,7 +2,6 @@ package striker.gravitas_android.fragments.event;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,21 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import io.realm.Realm;
-import io.realm.RealmList;
 import striker.gravitas_android.R;
 import striker.gravitas_android.Utils.RecyclerViewOnClickListener;
-import striker.gravitas_android.Utils.dummyCategoryClass;
 import striker.gravitas_android.activities.DetailActivity;
 import striker.gravitas_android.models.Event;
-import striker.gravitas_android.models.Org;
 
 /**
  * Created by HP on 7/26/2016.
@@ -82,8 +73,10 @@ public class EventListFragment extends Fragment {
     private void populateDummyClass() {
         Realm realm = Realm.getDefaultInstance();
         String[] currentTab = getResources().getStringArray(R.array.Categories);
+        events = realm.where(Event.class).equalTo("subCategory", "Workshop").findAll();
+        Log.d("CheckDb", events.get(0).getCoordinators().get(0).toString());
+        Log.d("CheckDb", events.toString());
         events = realm.where(Event.class).equalTo("subCategory",currentTab[category].toLowerCase()).findAll();
-        Log.d("Events",events.toString());
        /* dummyList.clear();
         for(int i=0;i<events.size();i++){
             orgs = events.get(i).getOrgs();
