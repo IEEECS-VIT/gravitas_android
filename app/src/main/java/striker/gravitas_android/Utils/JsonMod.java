@@ -46,7 +46,7 @@ public class JsonMod {
 
             if (jsonObject1.get("category").getAsString().equalsIgnoreCase("workshop")) {
                 jsonObject1.remove("subCategory");
-                jsonObject1.addProperty("subCategory", "Workshop");
+                jsonObject1.addProperty("subCategory", "workshop");
             }
         }
         return data.toString();
