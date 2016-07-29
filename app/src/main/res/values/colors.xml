@@ -8,12 +8,25 @@
     <color name="list_group_title">#808080</color>
     <color name="list_item_title">#AAAAAA</color>
 
-    <color name="bulb_splash_screen">#ffbe45</color>
+    <color name="bulb_splash_screen">#ffae17</color>
+    <color name="bulb_splash_screen_trace">#ffffff</color>
+    <color name="bulb_splash_screen_residue">#bcb8b1</color>
 
     <integer-array name="color_bulb_svg">
         <item>@color/bulb_splash_screen</item>
         <item>@color/bulb_splash_screen</item>
         <item>@color/bulb_splash_screen</item>
+    </integer-array>
+
+    <integer-array name="color_bulb_svg_trace">
+        <item>@color/bulb_splash_screen_trace</item>
+        <item>@color/bulb_splash_screen_trace</item>
+        <item>@color/bulb_splash_screen_trace</item>
+    </integer-array>
+    <integer-array name="color_bulb_svg_trace_residue">
+        <item>@color/bulb_splash_screen_residue</item>
+        <item>@color/bulb_splash_screen_residue</item>
+        <item>@color/bulb_splash_screen_residue</item>
     </integer-array>
 
 </resources>

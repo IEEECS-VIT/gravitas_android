@@ -30,7 +30,7 @@ public class Splashscreen extends AppCompatActivity implements Values{
     JsonMod jsonMod;
 
     //timeout in ms
-    private int timeout = 1000;
+    private int timeout = 2000;
 
     private AnimatedSvgView animatedSvgView;
     private int index = -1;

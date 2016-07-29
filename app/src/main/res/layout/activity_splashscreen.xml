@@ -20,10 +20,12 @@
         app:animatedSvgFillColors="@array/color_bulb_svg"
         app:animatedSvgGlyphStrings="@array/path_bulb_svg"
         app:animatedSvgFillStart="1200"
-        app:animatedSvgFillTime="1000"
+        app:animatedSvgFillTime="500"
         app:animatedSvgImageSizeX="492"
         app:animatedSvgImageSizeY="492"
-        app:animatedSvgTraceTime="2000"
-        app:animatedSvgTraceTimePerGlyph="1000"/>
+        app:animatedSvgTraceTime="1000"
+        app:animatedSvgTraceTimePerGlyph="1000"
+        app:animatedSvgTraceColors="@array/color_bulb_svg_trace"
+        app:animatedSvgTraceResidueColors="@array/color_bulb_svg_trace_residue"/>
 
 </RelativeLayout>
