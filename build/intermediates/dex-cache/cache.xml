@@ -19,7 +19,7 @@
         jar="/root/AndroidStudioProjects/gravitas_android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.1"
-        sha1="f99dd2415c91893f753d795ca9a22180679f8c23">
+        sha1="512f92ffb8ec48b0483504f5d77f4857effd648f">
         <dex dex="/root/AndroidStudioProjects/gravitas_android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_edb8f715538355eb17f8f3f3a533c211ada1dcba/classes.dex" />
     </item>
     <item
@@ -68,7 +68,7 @@
         jar="/root/AndroidStudioProjects/gravitas_android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.1"
-        sha1="94c8d3b44240f216fdb581a3538bc97c927c5db4">
+        sha1="8f4de0cc843d59905ffd09d46a7c23b076a86ca9">
         <dex dex="/root/AndroidStudioProjects/gravitas_android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_62a4edb1ff64f8763e9a9a05f047c03fb3eb61a8/classes.dex" />
     </item>
     <item

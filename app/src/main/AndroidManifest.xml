@@ -28,7 +28,8 @@
         <activity
             android:name=".activities.AboutGravitas"
             android:label="@string/title_activity_about_gravitas"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".activities.Home"></activity>
     </application>
 
 </manifest>

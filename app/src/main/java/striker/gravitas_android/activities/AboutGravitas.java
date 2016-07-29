@@ -33,7 +33,7 @@ public class AboutGravitas extends AppCompatActivity {
             }
         });*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle(" ");
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
