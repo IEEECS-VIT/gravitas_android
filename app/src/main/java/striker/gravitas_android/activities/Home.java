@@ -1,19 +1,19 @@
 package striker.gravitas_android.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,8 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import io.realm.Realm;
-import io.realm.RealmResults;
 import striker.gravitas_android.R;
 import striker.gravitas_android.models.Event;
 import striker.gravitas_android.navigationDrawer.adapter.CustomExpandableListAdapter;
@@ -152,8 +150,14 @@ public class Home extends AppCompatActivity {
                         .get(childPosition).toString();
                 getSupportActionBar().setTitle(selectedItem);
                 mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString() + " -> " + selectedItem);
-                Intent intent = new Intent(getApplicationContext(), CategoryActivity.class)
-                        .putExtra(CategoryActivity.category_key,selectedItem);
+
+                SharedPreferences sharedprefs = getSharedPreferences(CategoryActivity.category_key, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedprefs.edit();
+                editor.putString(CategoryActivity.category_key,selectedItem);
+                editor.apply();
+
+                Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+                        //.putExtra(CategoryActivity.category_key,selectedItem);
                 startActivity(intent);
                 mDrawerLayout.closeDrawer(GravityCompat.START);
                 return false;

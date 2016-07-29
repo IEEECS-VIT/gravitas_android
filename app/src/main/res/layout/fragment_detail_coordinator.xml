@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:ignore="MissingPrefix">
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coordinator:"
+        android:id="@+id/txt_cood1"
+        android:theme="@style/textView"
+        android:paddingTop="8dp"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: XYZ"
+        android:id="@+id/txt_codname"
+        android:paddingLeft="48dp"
+        android:theme="@style/textView" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact: 001122334455"
+        android:id="@+id/txt_codcontact"
+        android:paddingLeft="48dp"
+        android:theme="@style/textView" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: xyz@gmail.com"
+        android:id="@+id/txt_codemail"
+        android:paddingLeft="48dp"
+        android:theme="@style/textView" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coordinator:"
+        android:id="@+id/txt_cood2"
+        android:theme="@style/textView"
+        android:paddingTop="8dp"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: ABC"
+        android:id="@+id/txt_codname2"
+        android:paddingLeft="48dp"
+        android:theme="@style/textView" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact: 001122334455"
+        android:id="@+id/txt_codcontact2"
+        android:paddingLeft="48dp"
+        android:theme="@style/textView" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: abc@gmail.com"
+        android:id="@+id/txt_codemail2"
+        android:paddingLeft="48dp"
+        android:theme="@style/textView" />
+
+</LinearLayout>

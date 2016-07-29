@@ -1,11 +1,11 @@
 package striker.gravitas_android.fragments.event;
 
-import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +18,7 @@ import io.realm.RealmList;
 import striker.gravitas_android.R;
 import striker.gravitas_android.Utils.RecyclerViewOnClickListener;
 import striker.gravitas_android.Utils.dummyCategoryClass;
+import striker.gravitas_android.activities.DetailActivity;
 import striker.gravitas_android.models.Event;
 import striker.gravitas_android.models.Org;
 
@@ -65,8 +66,8 @@ public class EventListFragment extends Fragment {
 
             @Override
             public void onItemClick(dummyCategoryClass data) {
-                // Intent intent = new Intent(getActivity(),DetailActivity.class);
-                //startActivity(intent);
+                 Intent intent = new Intent(getActivity(),DetailActivity.class);
+                 startActivity(intent);
             }
         });
 
