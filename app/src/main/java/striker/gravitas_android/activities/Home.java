@@ -59,7 +59,7 @@ public class Home extends AppCompatActivity {
         setNavigationDrawer();
 
         de.hdodenhof.circleimageview.CircleImageView civMiddle = (de.hdodenhof.circleimageview.CircleImageView)findViewById(R.id.circleImageViewMiddle);
-        civMiddle.setPadding(50,(height/3)-300,50,(2*height/3)-300);
+        civMiddle.setPadding(50,(height/3)-width*3/10,50,(2*height/3)-width*3/10);
         civMiddle.setImageResource(R.drawable.graivtas16);
 
         CircleLayout cl = (CircleLayout)findViewById(R.id.circle_layout);
