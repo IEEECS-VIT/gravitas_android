@@ -3,8 +3,10 @@ package striker.gravitas_android.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -134,8 +136,30 @@ public class Home extends AppCompatActivity {
         mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
+                if(mExpandableListTitle.get(groupPosition).equals("Categories")){
+
+                }else if(mExpandableListTitle.get(groupPosition).equals("Contact Us")){
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                    Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                    sendIntent.setType("plain/text");
+                    sendIntent.setData(Uri.parse("test@gmail.com"));
+                    sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
+                    sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "test@gmail.com" });
+                    try {
+                        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback :: Gravitas'16 Android App" + getPackageManager().getPackageInfo(getPackageName(),0).versionName);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, "");
+                    startActivity(sendIntent);
+                }else if(mExpandableListTitle.get(groupPosition).equals("About Gravitas")){
+                    Intent i = new Intent(getBaseContext(),AboutGravitas.class);
+                    startActivity(i);
+                }
+
+                //getSupportActionBar().setTitle(mExpandableListTitle.get(groupPosition).toString());
                 //mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString());
-                mDrawerLayout.closeDrawer(GravityCompat.START);
+                //
             }
         });
 
