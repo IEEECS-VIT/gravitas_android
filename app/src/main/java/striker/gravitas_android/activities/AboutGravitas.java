@@ -8,8 +8,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Display;
 import android.view.View;
+import android.widget.TextView;
 
 import striker.gravitas_android.R;
 
@@ -43,6 +45,8 @@ public class AboutGravitas extends AppCompatActivity {
         AppBarLayout appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout_about_us);
         appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(width,height/3));
 
+        TextView textView = (TextView)findViewById(R.id.content_about);
+        textView.setMovementMethod(new ScrollingMovementMethod());
     }
 
 }
