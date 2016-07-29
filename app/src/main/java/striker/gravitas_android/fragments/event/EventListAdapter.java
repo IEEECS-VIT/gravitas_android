@@ -13,18 +13,19 @@ import java.util.List;
 import striker.gravitas_android.R;
 import striker.gravitas_android.Utils.RecyclerViewOnClickListener;
 import striker.gravitas_android.Utils.dummyCategoryClass;
+import striker.gravitas_android.models.Event;
 
 /**
  * Created by HP on 7/26/2016.
  */
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.eventViewHolder> {
     private Context context;
-    private List<dummyCategoryClass> category;
-    private RecyclerViewOnClickListener<dummyCategoryClass> onClickListener;
+    private List<Event> events;
+    private RecyclerViewOnClickListener<Event> onClickListener;
 
-    public EventListAdapter(Context context,List<dummyCategoryClass> category){
+    public EventListAdapter(Context context,List<Event> events){
         this.context = context;
-        this.category = category;
+        this.events = events;
     }
     @Override
     public eventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -34,19 +35,22 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.even
 
     @Override
     public void onBindViewHolder(eventViewHolder holder, int position) {
-        dummyCategoryClass current = category.get(position);
-
-        holder.wishIcon.setImageResource(current.getIcon());
-        holder.eventName.setText(current.getEvent());
-        holder.clubName.setText(current.getOrganiser());
+        Event current = events.get(position);
+        String organizers = current.getOrgs().get(0).getOrganization();
+        for(int i=1;i<current.getOrgs().size();i++){
+            organizers+=", "+current.getOrgs().get(i).getOrganization();
+        }
+        holder.wishIcon.setImageResource(R.drawable.ic_circle_check);
+        holder.eventName.setText(current.getName());
+        holder.clubName.setText(organizers);
     }
 
     @Override
     public int getItemCount() {
-        return category.size();
+        return events.size();
     }
 
-    public void setOnClickListener(RecyclerViewOnClickListener<dummyCategoryClass> onClickListener) {
+    public void setOnClickListener(RecyclerViewOnClickListener<Event> onClickListener) {
         this.onClickListener = onClickListener;
     }
 
@@ -64,8 +68,8 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.even
 
         @Override
         public void onClick(View v) {
-            dummyCategoryClass dum = category.get(getAdapterPosition());
-            onClickListener.onItemClick(dum);
+            Event current = events.get(getAdapterPosition());
+            onClickListener.onItemClick(current);
         }
     }
 }

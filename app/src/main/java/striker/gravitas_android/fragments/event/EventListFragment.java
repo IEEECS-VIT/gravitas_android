@@ -2,16 +2,22 @@ package striker.gravitas_android.fragments.event;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -34,8 +40,6 @@ public class EventListFragment extends Fragment {
     private int category;
     private EventListAdapter eventAdapter;
     private List<Event> events;
-    private RealmList<Org> orgs;
-    private static List<dummyCategoryClass> dummyList = new ArrayList<dummyCategoryClass>();
     public EventListFragment() {
 
     }
@@ -61,11 +65,11 @@ public class EventListFragment extends Fragment {
         recyclerview.setLayoutManager(layoutManager);
 
 
-        eventAdapter = new EventListAdapter(getActivity(), dummyList);
-        eventAdapter.setOnClickListener(new RecyclerViewOnClickListener<dummyCategoryClass>(){
+        eventAdapter = new EventListAdapter(getActivity(), events);
+        eventAdapter.setOnClickListener(new RecyclerViewOnClickListener<Event>(){
 
             @Override
-            public void onItemClick(dummyCategoryClass data) {
+            public void onItemClick(Event data) {
                  Intent intent = new Intent(getActivity(),DetailActivity.class);
                  startActivity(intent);
             }
@@ -79,14 +83,17 @@ public class EventListFragment extends Fragment {
         Realm realm = Realm.getDefaultInstance();
         String[] currentTab = getResources().getStringArray(R.array.Categories);
         events = realm.where(Event.class).equalTo("subCategory",currentTab[category].toLowerCase()).findAll();
-        dummyList.clear();
+        Log.d("Events",events.toString());
+       /* dummyList.clear();
         for(int i=0;i<events.size();i++){
             orgs = events.get(i).getOrgs();
             String organizations = orgs.get(0).getOrganization();
             for(int j=1;j<orgs.size();j++){
                 organizations = organizations + "," + orgs.get(j).getOrganization();
             }
+            Log.d("Org",organizations.toString());
             dummyList.add(new dummyCategoryClass(events.get(i).getName(),organizations,R.drawable.ic_circle_check));
         }
+        Log.d("DummyList",dummyList.toString()); */
     }
 }
