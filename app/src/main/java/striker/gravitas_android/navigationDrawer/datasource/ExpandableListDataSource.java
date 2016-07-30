@@ -24,13 +24,11 @@ public class ExpandableListDataSource {
 
         List<String> navHeading = Arrays.asList(context.getResources().getStringArray(R.array.nav_list));
 
-        List<String> home = Arrays.asList(context.getResources().getStringArray(R.array.Home));
         List<String> wishlist= Arrays.asList(context.getResources().getStringArray(R.array.Wishlist));
         List<String> categories = Arrays.asList(context.getResources().getStringArray(R.array.Categories));
         List<String> about = Arrays.asList(context.getResources().getStringArray(R.array.About));
         List<String> contact = Arrays.asList(context.getResources().getStringArray(R.array.contact));
 
-        expandableListData.put(navHeading.get(0), home);
         expandableListData.put(navHeading.get(1), wishlist);
         expandableListData.put(navHeading.get(2), categories);
         expandableListData.put(navHeading.get(3), about);

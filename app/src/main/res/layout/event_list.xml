@@ -14,7 +14,8 @@
         android:id="@+id/imv_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_margin="16dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:src="@drawable/ic_circle_check" />
 
     <LinearLayout
@@ -29,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="event"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:typeface="sans">
         </TextView>
 
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="club"
             android:textColor="#646464"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:typeface="sans">
 
         </TextView>

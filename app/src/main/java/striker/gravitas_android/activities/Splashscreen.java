@@ -70,6 +70,7 @@ public class Splashscreen extends AppCompatActivity implements Values{
                 //Change the intent to whatever the activity name is.
                 Intent intent = new Intent(Splashscreen.this, Home.class);
                 startActivity(intent);
+                finish();
             }
         }, timeout);
     }

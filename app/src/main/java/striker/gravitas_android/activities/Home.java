@@ -8,9 +8,11 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -24,6 +26,7 @@ import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.szugyi.circlemenu.view.CircleImageView;
 import com.szugyi.circlemenu.view.CircleLayout;
@@ -43,6 +46,7 @@ public class Home extends AppCompatActivity {
     int height,width;
     SharedPreferences sharedprefs;
     SharedPreferences.Editor editor;
+    private Boolean exit = false;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
@@ -52,6 +56,7 @@ public class Home extends AppCompatActivity {
     private Map<String, List<String>> mExpandableListData;
     private TextView mSelectedItemView;
     private List<Event> eventList;
+    private FloatingActionButton myFab;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -125,6 +130,16 @@ public class Home extends AppCompatActivity {
 
         mExpandableListData = ExpandableListDataSource.getData(this);
         mExpandableListTitle = new ArrayList(mExpandableListData.keySet());
+
+        myFab = (FloatingActionButton) findViewById(R.id.fab);
+        myFab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openWishlist();
+            }
+        });
+
+
+
 
         addDrawerItems();
         setupDrawer();
@@ -226,6 +241,26 @@ public class Home extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+        if (exit) {
+            finish(); // finish activity
+        } else {
+            Toast.makeText(this, "Press Back again to Exit.",
+                    Toast.LENGTH_SHORT).show();
+            exit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+
+        }
+
+    }
+
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
@@ -245,9 +280,6 @@ public class Home extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         // Activate the navigation drawer toggle
         if (mDrawerToggle.onOptionsItemSelected(item)) {
@@ -256,4 +288,10 @@ public class Home extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void openWishlist() {
+        Intent i = new Intent(getBaseContext(), Wishlist.class);
+        startActivity(i);
+    }
 }
+

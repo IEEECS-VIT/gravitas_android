@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     tools:ignore="MissingPrefix">
@@ -14,22 +14,22 @@
         android:layout_height="8sp" />
 
     <TextView
+        android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
         android:text="Name: Mozilla"
-        android:id="@+id/txt_name"
-        android:theme="@style/textView"
-        android:paddingTop="8dp"/>
+        android:theme="@style/textView" />
 
     <Space
         android:layout_width="wrap_content"
         android:layout_height="8sp" />
 
     <TextView
+        android:id="@+id/txt_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Category: Workshop"
-        android:id="@+id/txt_category"
         android:theme="@style/textView" />
 
     <Space
@@ -37,10 +37,10 @@
         android:layout_height="8sp" />
 
     <TextView
+        android:id="@+id/txt_org"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Club/Chapter: IEEECS"
-        android:id="@+id/txt_org"
         android:theme="@style/textView" />
 
     <Space
@@ -48,10 +48,10 @@
         android:layout_height="8sp" />
 
     <TextView
+        android:id="@+id/txt_schedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Schedule:"
-        android:id="@+id/txt_schedule"
         android:theme="@style/textView" />
 
     <Space
@@ -59,11 +59,11 @@
         android:layout_height="14sp" />
 
     <TextView
+        android:id="@+id/txt_venue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Venue: SJT 412"
-        android:id="@+id/txt_venue"
         android:paddingLeft="48dp"
+        android:text="Venue: SJT 412"
         android:theme="@style/textView" />
 
     <Space
@@ -71,23 +71,23 @@
         android:layout_height="4sp" />
 
     <TextView
+        android:id="@+id/txt_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="48dp"
         android:text="Date: 20 September"
-        android:id="@+id/txt_date"
-        android:theme="@style/textView"
-        android:paddingLeft="48dp"/>
+        android:theme="@style/textView" />
 
     <Space
         android:layout_width="wrap_content"
         android:layout_height="4sp" />
 
     <TextView
+        android:id="@+id/txt_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time: 8:00pm"
-        android:id="@+id/txt_time"
         android:paddingLeft="48dp"
+        android:text="Time: 8:00pm"
         android:theme="@style/textView" />
 
     <Space
@@ -95,10 +95,10 @@
         android:layout_height="8sp" />
 
     <TextView
+        android:id="@+id/txt_team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Team Size: 1"
-        android:id="@+id/txt_team"
         android:theme="@style/textView" />
 
     <Space
@@ -106,10 +106,10 @@
         android:layout_height="8sp" />
 
     <TextView
+        android:id="@+id/txt_fee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Participation Fee: 100"
-        android:id="@+id/txt_fee"
         android:theme="@style/textView" />
 
     <Space
@@ -117,10 +117,10 @@
         android:layout_height="8sp" />
 
     <TextView
+        android:id="@+id/txt_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Description:"
-        android:id="@+id/txt_description"
         android:theme="@style/textView" />
 
     <Space
@@ -128,12 +128,12 @@
         android:layout_height="8sp" />
 
     <TextView
+        android:id="@+id/txt_event_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/lipsum"
-        android:id="@+id/txt_event_description"
-        android:theme="@style/textView"
+        android:paddingBottom="16dp"
         android:paddingLeft="48dp"
-        android:paddingBottom="16dp"/>
+        android:text="@string/lipsum"
+        android:theme="@style/textView" />
 
 </LinearLayout>
