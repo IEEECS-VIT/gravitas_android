@@ -16,6 +16,7 @@ import java.util.List;
 import io.realm.Realm;
 import striker.gravitas_android.R;
 import striker.gravitas_android.Utils.RecyclerViewOnClickListener;
+import striker.gravitas_android.activities.CategoryActivity;
 import striker.gravitas_android.activities.DetailActivity;
 import striker.gravitas_android.models.Event;
 
@@ -61,7 +62,8 @@ public class EventListFragment extends Fragment {
 
             @Override
             public void onItemClick(Event data) {
-                 Intent intent = new Intent(getActivity(),DetailActivity.class);
+                 Intent intent = new Intent(getActivity(),DetailActivity.class)
+                         .putExtra(CategoryActivity.category_key,data.getName());
                  startActivity(intent);
             }
         });

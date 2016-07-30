@@ -28,16 +28,30 @@ public class DetailActivity extends AppCompatActivity {
     private View imgContainer;
     FloatingActionButton myFab;
     boolean isFab = false;
+    DescriptionFragment descFragment;
+    CoordinatorFragment coordinatorFragment;
+    private static String sent = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        //to get the event name
+        descFragment = new DescriptionFragment();
+        coordinatorFragment = new CoordinatorFragment();
+        sent = getIntent().getStringExtra(CategoryActivity.category_key);
+
+        Bundle args = new Bundle();
+        args.putCharSequence(CategoryActivity.category_key, sent);
+
+        descFragment.setArguments(args);
+        coordinatorFragment.setArguments(args);
+
         viewpager = (ViewPager) findViewById(R.id.view_pager_details);
         detailAdapter = new DetailPagerAdapter(this.getSupportFragmentManager());
-        detailAdapter.addFragment(new DescriptionFragment(),"Description");
-        detailAdapter.addFragment(new CoordinatorFragment(),"Coordinator");
+        detailAdapter.addFragment(descFragment,"Description");
+        detailAdapter.addFragment(coordinatorFragment,"Coordinator");
         viewpager.setAdapter(detailAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_details);
         tabLayout.setupWithViewPager(viewpager);
