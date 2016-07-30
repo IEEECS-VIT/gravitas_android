@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -71,12 +72,12 @@ public class Home extends AppCompatActivity {
         cl.setLayoutParams(clParams);
 
         final String[] subCategories = getResources().getStringArray(R.array.Categories);
-
+        final int[] iconsCategories = {R.mipmap.ic_category_workshop,R.mipmap.ic_category_debate_discussion,R.mipmap.ic_category_chemical_bio,R.mipmap.ic_category_robotics,R.mipmap.ic_category_circuitrix,R.mipmap.ic_category_builtrix,R.mipmap.ic_category_quiz,R.mipmap.ic_category_applied_engineering,R.mipmap.ic_category_online, R.mipmap.ic_category_informals,R.mipmap.ic_category_bits_and_bytes};
 
         for(int i=0;i<subCategories.length;i++){
             final CircleImageView civ = new CircleImageView(getApplicationContext());
-            civ.setLayoutParams(new CircleLayout.LayoutParams(100,100));
-            civ.setImageResource(R.drawable.ic_circle_check);
+            civ.setLayoutParams(new CircleLayout.LayoutParams(125,125));
+            civ.setImageResource(iconsCategories[i]);
             civ.setContentDescription(subCategories[i]);
             cl.addView(civ);
 
