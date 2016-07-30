@@ -28,8 +28,12 @@
         <activity
             android:name=".activities.AboutGravitas"
             android:label="@string/title_activity_about_gravitas"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".activities.Home"></activity>
+            android:parentActivityName=".activities.Home"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.Wishlist"
+            android:label="@string/title_activity_wishlist"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

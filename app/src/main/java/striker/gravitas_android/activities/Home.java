@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Point;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -42,20 +41,17 @@ public class Home extends AppCompatActivity {
 
     Toolbar toolbar = null;
     int height,width;
-
+    SharedPreferences sharedprefs;
+    SharedPreferences.Editor editor;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
-
     private ExpandableListView mExpandableListView;
     private ExpandableListAdapter mExpandableListAdapter;
     private List<String> mExpandableListTitle;
     private Map<String, List<String>> mExpandableListData;
     private TextView mSelectedItemView;
     private List<Event> eventList;
-
-    SharedPreferences sharedprefs;
-    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -162,6 +158,9 @@ public class Home extends AppCompatActivity {
                     startActivity(sendIntent);
                 }else if(mExpandableListTitle.get(groupPosition).equals("About Gravitas")){
                     Intent i = new Intent(getBaseContext(),AboutGravitas.class);
+                    startActivity(i);
+                } else if (mExpandableListTitle.get(groupPosition).equals("Wishlist")) {
+                    Intent i = new Intent(getBaseContext(), Wishlist.class);
                     startActivity(i);
                 }
 

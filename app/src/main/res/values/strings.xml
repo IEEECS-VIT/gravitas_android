@@ -57,5 +57,6 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
     <string name="title_activity_about_gravitas">AboutGravitas</string>
 
     <string name="content_about_gravitas">graVITas is VIT University\'s annual knowledge carnival which aims to empower the young minds by giving them a national platform to showcase their genius and innovation. The Technical festival is spread over 3 days with over 100 events, 50 workshops with over 30,000 footfalls. Started in 2009 by a group of enthusiastic VITians, graVITas now in its 8th edition has become the largest technical festival of its kind. Each year graVITas bring in a new theme, thus providing the eager participants a new experience every time. Sustainable social innovations is the theme for graVITas\'16 were students will showcase various ideas, lend a framework to transform latent concepts into viable technical solutions to real world problems faced by our society.</string>
+    <string name="title_activity_wishlist">Wishlist</string>
 
 </resources>

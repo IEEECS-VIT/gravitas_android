@@ -3,43 +3,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:orientation="horizontal"
-    android:gravity="center_vertical"
     android:padding="16dp"
     android:weightSum="1">
 
     <ImageView
+        android:id="@+id/imv_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:id="@+id/imv_icon"
-        android:src="@drawable/ic_circle_check"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_circle_check" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:layout_weight="1">
+        android:paddingLeft="16dp">
 
         <TextView
+            android:id="@+id/mtv_event"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mtv_event"
-            android:typeface="sans"
             android:text="event"
-            android:textSize="22sp">
+            android:textSize="22sp"
+            android:typeface="sans">
         </TextView>
 
         <TextView
+            android:id="@+id/mtv_club"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mtv_club"
-            android:typeface="sans"
             android:text="club"
+            android:textColor="#646464"
             android:textSize="14sp"
-            android:textColor="#646464">
+            android:typeface="sans">
 
         </TextView>
     </LinearLayout>

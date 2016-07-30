@@ -11,7 +11,6 @@ import io.realm.annotations.PrimaryKey;
  */
 public class Coordinator extends RealmObject {
 
-    @PrimaryKey
     private int k;
 
     @SerializedName("phone")
@@ -22,6 +21,7 @@ public class Coordinator extends RealmObject {
     @Expose
     private String name;
 
+    @PrimaryKey
     @SerializedName("reg_no")
     @Expose
     private String reg_no;

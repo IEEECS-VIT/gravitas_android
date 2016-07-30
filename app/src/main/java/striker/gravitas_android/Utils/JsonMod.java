@@ -1,5 +1,7 @@
 package striker.gravitas_android.Utils;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -49,6 +51,7 @@ public class JsonMod {
                 jsonObject1.addProperty("subCategory", "workshop");
             }
         }
+        Log.d("Json", data.toString());
         return data.toString();
     }
 

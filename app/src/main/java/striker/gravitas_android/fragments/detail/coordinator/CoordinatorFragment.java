@@ -1,15 +1,13 @@
 package striker.gravitas_android.fragments.detail.coordinator;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -25,7 +23,7 @@ public class CoordinatorFragment extends Fragment {
 
     TextView name1,num1,email1,name2,num2,email2;
     private String eventName;
-    private List<Event> event;
+    private Event event;
     private RealmList<Coordinator> coordinator;
 
     @Nullable
@@ -39,14 +37,18 @@ public class CoordinatorFragment extends Fragment {
         }
         initialiseTextView(view);
         populateData();
+
         return view;
     }
 
+
     private void populateData() {
+
         Realm realm = Realm.getDefaultInstance();
-        event = realm.where(Event.class).equalTo("name",eventName).findAll();
+        event = realm.where(Event.class).equalTo("name", eventName).findFirst();
         Log.d("Selected",event.toString());
-        coordinator = event.get(0).getCoordinators();
+        coordinator = event.getCoordinators();
+        Log.d("Selected", event.toString());
         Log.d("EventName",eventName);
         Log.d("Coordinator",coordinator.get(0).toString());
         if(coordinator.get(0) != null) {

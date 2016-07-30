@@ -11,31 +11,40 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+import io.realm.Realm;
 import striker.gravitas_android.R;
 import striker.gravitas_android.fragments.detail.DetailPagerAdapter;
 import striker.gravitas_android.fragments.detail.coordinator.CoordinatorFragment;
 import striker.gravitas_android.fragments.detail.description.DescriptionFragment;
+import striker.gravitas_android.models.Event;
+import striker.gravitas_android.models.Favourites;
 
 /**
  * Created by HP on 7/29/2016.
  */
 public class DetailActivity extends AppCompatActivity {
 
+    private static String sent = "";
     ViewPager viewpager;
     DetailPagerAdapter detailAdapter;
-    private View imgContainer;
     FloatingActionButton myFab;
     boolean isFab = false;
     DescriptionFragment descFragment;
     CoordinatorFragment coordinatorFragment;
-    private static String sent = "";
+    private View imgContainer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        EventBus.getDefault().register(this);
 
         //to get the event name
         descFragment = new DescriptionFragment();
@@ -80,7 +89,20 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void doMyThing() {
+        descFragment.postEventFab();
         myFab.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_fav_white));
-        Snackbar.make(findViewById(R.id.root_coordinator), "Success", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(findViewById(R.id.root_coordinator), "Added to Wishlist", Snackbar.LENGTH_LONG).show();
+
+    }
+
+    @Subscribe
+    public void saveFav(Event event) {
+        Log.d("DA", "SaveFav called");
+        Realm realm = Realm.getDefaultInstance();
+        Favourites favourite = new Favourites(event.getName(), event.getCategory(), event.getSubCategory(), event.getOrgs(), event.getCoordinators(), event.getDescription(), event.getTeamSize(), event.getParticipationFee());
+        realm.beginTransaction();
+        realm.copyToRealmOrUpdate(favourite);
+        realm.commitTransaction();
+        realm.close();
     }
 }
