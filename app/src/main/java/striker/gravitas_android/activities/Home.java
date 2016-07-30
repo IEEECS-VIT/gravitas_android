@@ -53,6 +53,9 @@ public class Home extends AppCompatActivity {
     private TextView mSelectedItemView;
     private List<Event> eventList;
 
+    SharedPreferences sharedprefs;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +84,10 @@ public class Home extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     //Snackbar.make(view,"HEY THERE",Snackbar.LENGTH_LONG).show();
+                    sharedprefs = getSharedPreferences(CategoryActivity.category_key, Context.MODE_PRIVATE);
+                    editor = sharedprefs.edit();
+                    editor.putString(CategoryActivity.category_key,civ.getContentDescription().toString());
+                    editor.apply();
                     Intent intent = new Intent(getApplicationContext(), CategoryActivity.class).putExtra(CategoryActivity.category_key,civ.getContentDescription());
                     startActivity(intent);
                 }
@@ -177,8 +184,8 @@ public class Home extends AppCompatActivity {
                         .get(childPosition).toString();
                 //mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString() + " -> " + selectedItem);
 
-                SharedPreferences sharedprefs = getSharedPreferences(CategoryActivity.category_key, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedprefs.edit();
+                sharedprefs = getSharedPreferences(CategoryActivity.category_key, Context.MODE_PRIVATE);
+                editor = sharedprefs.edit();
                 editor.putString(CategoryActivity.category_key,selectedItem);
                 editor.apply();
 
