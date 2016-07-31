@@ -2,11 +2,11 @@ package striker.gravitas_android.fragments.detail.description;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.Space;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Space;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -28,7 +28,6 @@ public class DescriptionFragment extends Fragment {
     private Event event;
     private String eventName;
     private RealmList<Org> orgs;
-    Space scheduleSpace;
 
 
     @Override
@@ -76,7 +75,6 @@ public class DescriptionFragment extends Fragment {
         participationFee.setText("Participation Fee: " + String.valueOf(event.getParticipationFee()));
         description.setText(event.getDescription());
         schedule.setVisibility(View.GONE);
-        scheduleSpace.setVisibility(View.GONE);
         venue.setVisibility(View.GONE);
         date.setVisibility(View.GONE);
         time.setVisibility(View.GONE);
@@ -99,7 +97,6 @@ public class DescriptionFragment extends Fragment {
         date = (TextView) itemView.findViewById(R.id.txt_date);
         teamSize = (TextView) itemView.findViewById(R.id.txt_team);
         schedule = (TextView) itemView.findViewById(R.id.txt_schedule);
-        scheduleSpace = (Space) itemView.findViewById(R.id.space_schedule);
     }
 
     public void postEventFab() {

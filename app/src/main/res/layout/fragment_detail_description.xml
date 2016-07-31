@@ -43,21 +43,12 @@
         android:text="Club/Chapter: IEEECS"
         android:theme="@style/textView" />
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8sp"
-        android:id="@+id/space_schedule"/>
-
     <TextView
         android:id="@+id/txt_schedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Schedule:"
         android:theme="@style/textView" />
-
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="14sp" />
 
     <TextView
         android:id="@+id/txt_venue"
@@ -67,10 +58,6 @@
         android:text="Venue: SJT 412"
         android:theme="@style/textView" />
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="4sp" />
-
     <TextView
         android:id="@+id/txt_date"
         android:layout_width="wrap_content"
@@ -78,10 +65,6 @@
         android:paddingLeft="48dp"
         android:text="Date: 20 September"
         android:theme="@style/textView" />
-
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="4sp" />
 
     <TextView
         android:id="@+id/txt_time"
