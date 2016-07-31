@@ -18,6 +18,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +42,7 @@ import striker.gravitas_android.models.Event;
 import striker.gravitas_android.navigationDrawer.adapter.CustomExpandableListAdapter;
 import striker.gravitas_android.navigationDrawer.datasource.ExpandableListDataSource;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements CircleLayout.OnItemSelectedListener, CircleLayout.OnItemClickListener,CircleLayout.OnRotationFinishedListener, CircleLayout.OnCenterClickListener{
 
     Toolbar toolbar = null;
     int height,width;
@@ -57,6 +59,9 @@ public class Home extends AppCompatActivity {
     private TextView mSelectedItemView;
     private List<Event> eventList;
     private FloatingActionButton myFab;
+    private CircleLayout cl;
+
+    private TextView textViewHome;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,10 +72,20 @@ public class Home extends AppCompatActivity {
         civMiddle.setPadding(50,(height/3)-width*3/10,50,(2*height/3)-width*3/10);
         civMiddle.setImageResource(R.drawable.graivtas16);
 
-        CircleLayout cl = (CircleLayout)findViewById(R.id.circle_layout);
+        cl = (CircleLayout)findViewById(R.id.circle_layout);
         CoordinatorLayout.LayoutParams clParams = new CoordinatorLayout.LayoutParams(width+100,width+100);
         clParams.setMargins(-50,0,0,0);
         cl.setLayoutParams(clParams);
+
+        textViewHome = (TextView)findViewById(R.id.category_name_home);
+        textViewHome.setPadding(0,height/3 - 3*width/10 + 50,0,0);
+        textViewHome.setText("Rotate");
+
+        cl.setOnItemClickListener(this);
+        cl.setOnItemSelectedListener(this);
+        cl.setOnRotationFinishedListener(this);
+        cl.setOnCenterClickListener(this);
+
 
         final String[] subCategories = getResources().getStringArray(R.array.Categories);
         final int[] iconsCategories = {R.mipmap.ic_category_workshop,R.mipmap.ic_category_debate_discussion,R.mipmap.ic_category_chemical_bio,R.mipmap.ic_category_robotics,R.mipmap.ic_category_circuitrix,R.mipmap.ic_category_builtrix,R.mipmap.ic_category_quiz,R.mipmap.ic_category_applied_engineering,R.mipmap.ic_category_online, R.mipmap.ic_category_informals,R.mipmap.ic_category_bits_and_bytes};
@@ -79,23 +94,36 @@ public class Home extends AppCompatActivity {
             final CircleImageView civ = new CircleImageView(getApplicationContext());
             civ.setLayoutParams(new CircleLayout.LayoutParams(125,125));
             civ.setImageResource(iconsCategories[i]);
+            int j=i+1;
+            String thisId = "id_category_" + j;
+            int resId=0;
+            try {
+                resId = R.id.class.getField(thisId).getInt(null);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+            civ.setId(resId);
             civ.setContentDescription(subCategories[i]);
             cl.addView(civ);
-
-            civ.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //Snackbar.make(view,"HEY THERE",Snackbar.LENGTH_LONG).show();
-                    sharedprefs = getSharedPreferences(CategoryActivity.category_key, Context.MODE_PRIVATE);
-                    editor = sharedprefs.edit();
-                    editor.putString(CategoryActivity.category_key,civ.getContentDescription().toString());
-                    editor.apply();
-                    Intent intent = new Intent(getApplicationContext(), CategoryActivity.class).putExtra(CategoryActivity.category_key,civ.getContentDescription());
-                    startActivity(intent);
-                }
-            });
-
         }
+
+    }
+
+    @Override
+    public void onCenterClick() {
+
+    }
+
+    @Override
+    public void onItemSelected(View view) {
+        String f = view.getContentDescription() + "\nClick to know more";
+        textViewHome.setText(f);
+    }
+
+    @Override
+    public void onRotationFinished(View view) {
 
     }
 
@@ -293,5 +321,17 @@ public class Home extends AppCompatActivity {
         Intent i = new Intent(getBaseContext(), Wishlist.class);
         startActivity(i);
     }
+
+    @Override
+    public void onItemClick(View view) {
+        sharedprefs = getSharedPreferences(CategoryActivity.category_key, Context.MODE_PRIVATE);
+        editor = sharedprefs.edit();
+        editor.putString(CategoryActivity.category_key,findViewById(view.getId()).getContentDescription().toString());
+        editor.apply();
+        Intent intent = new Intent(getApplicationContext(), CategoryActivity.class).putExtra(CategoryActivity.category_key,findViewById(view.getId()).getContentDescription().toString());
+        startActivity(intent);
+
+    }
+
 }
 
