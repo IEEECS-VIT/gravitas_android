@@ -78,7 +78,7 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
         cl.setLayoutParams(clParams);
 
         textViewHome = (TextView)findViewById(R.id.category_name_home);
-        textViewHome.setPadding(0,height/3 - 3*width/10 + 50,0,0);
+        textViewHome.setPadding(0,height/3 - 2*width/10 + 50,0,0);
         textViewHome.setText("Rotate");
 
         cl.setOnItemClickListener(this);
@@ -200,7 +200,7 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
                     sendIntent.putExtra(Intent.EXTRA_TEXT, "");
                     startActivity(sendIntent);
                 }else if(mExpandableListTitle.get(groupPosition).equals("About Gravitas")){
-                    Intent i = new Intent(getBaseContext(),AboutGravitas.class);
+                    Intent i = new Intent(getBaseContext(),About.class);
                     startActivity(i);
                 } else if (mExpandableListTitle.get(groupPosition).equals("Wishlist")) {
                     Intent i = new Intent(getBaseContext(), Wishlist.class);

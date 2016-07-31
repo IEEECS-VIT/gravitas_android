@@ -20,7 +20,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".activities.Home" />
         <activity
@@ -32,16 +31,19 @@
             android:parentActivityName=".activities.CategoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.AboutGravitas"
-            android:label="@string/title_activity_about_gravitas"
-            android:parentActivityName=".activities.Home"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".activities.Wishlist"
             android:label="@string/title_activity_wishlist"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.About"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".activities.Home"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="striker.gravitas_android.activities.Home" />
+        </activity>
     </application>
 
 </manifest>

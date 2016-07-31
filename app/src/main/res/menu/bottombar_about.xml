@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_bar_about_gravitas"
+        android:title="Gravitas"
+        android:icon="@drawable/ic_bottom_bar_about_gravitas"/>
+    <item
+        android:id="@+id/bottom_bar_about_university"
+        android:title="University"
+        android:icon="@drawable/ic_bottom_bar_about_university"/>
+    <item
+        android:id="@+id/bottom_bar_about_team"
+        android:title="Team"
+        android:icon="@drawable/ic_bottom_bar_about_team"/>
+</menu>
