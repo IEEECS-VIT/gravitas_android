@@ -2,17 +2,12 @@ package striker.gravitas_android.activities;
 
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Display;
-import android.view.View;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
@@ -47,12 +42,12 @@ public class About extends AppCompatActivity {
 
         bottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
             @Override
-            public void onMenuTabSelected(@IdRes int menuItemId) {
+            public void onMenuTabSelected(int menuItemId) {
 
             }
 
             @Override
-            public void onMenuTabReSelected(@IdRes int menuItemId) {
+            public void onMenuTabReSelected(int menuItemId) {
 
             }
         });

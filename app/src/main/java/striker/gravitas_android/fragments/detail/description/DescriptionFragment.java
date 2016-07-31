@@ -1,8 +1,8 @@
 package striker.gravitas_android.fragments.detail.description;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.Space;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,11 +24,13 @@ import striker.gravitas_android.models.Org;
  */
 public class DescriptionFragment extends Fragment {
 
-    TextView name,org,description,participationFee,venue,time,date,teamSize,category;
+    TextView name,org,description,participationFee,venue,time,date,teamSize,category,schedule;
     private Event event;
     private String eventName;
     private RealmList<Org> orgs;
-    @Nullable
+    Space scheduleSpace;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_description, container, false);
@@ -73,9 +75,11 @@ public class DescriptionFragment extends Fragment {
         teamSize.setText("Team Size: " + String.valueOf(event.getTeamSize()));
         participationFee.setText("Participation Fee: " + String.valueOf(event.getParticipationFee()));
         description.setText(event.getDescription());
-        venue.setText("null");
-        date.setText("null");
-        time.setText("null");
+        schedule.setVisibility(View.GONE);
+        scheduleSpace.setVisibility(View.GONE);
+        venue.setVisibility(View.GONE);
+        date.setVisibility(View.GONE);
+        time.setVisibility(View.GONE);
         orgs = event.getOrgs();
         String organizations = orgs.get(0).getOrganization();
         for(int j=1;j<orgs.size();j++){
@@ -94,6 +98,8 @@ public class DescriptionFragment extends Fragment {
         time = (TextView) itemView.findViewById(R.id.txt_time);
         date = (TextView) itemView.findViewById(R.id.txt_date);
         teamSize = (TextView) itemView.findViewById(R.id.txt_team);
+        schedule = (TextView) itemView.findViewById(R.id.txt_schedule);
+        scheduleSpace = (Space) itemView.findViewById(R.id.space_schedule);
     }
 
     public void postEventFab() {

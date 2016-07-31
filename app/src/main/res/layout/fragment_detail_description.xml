@@ -45,7 +45,8 @@
 
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="8sp" />
+        android:layout_height="8sp"
+        android:id="@+id/space_schedule"/>
 
     <TextView
         android:id="@+id/txt_schedule"

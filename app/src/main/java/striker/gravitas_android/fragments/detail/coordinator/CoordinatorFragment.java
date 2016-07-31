@@ -1,7 +1,6 @@
 package striker.gravitas_android.fragments.detail.coordinator;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,12 +20,11 @@ import striker.gravitas_android.models.Event;
  */
 public class CoordinatorFragment extends Fragment {
 
-    TextView name1,num1,email1,name2,num2,email2;
+    TextView name1,num1,email1,name2,num2,email2,coordinator2;
     private String eventName;
     private Event event;
     private RealmList<Coordinator> coordinator;
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_coordinator, container, false);
@@ -65,9 +63,10 @@ public class CoordinatorFragment extends Fragment {
             num2.setText("Contact: " + coordinator.get(1).getPhone());
             email2.setText("Email: " + coordinator.get(1).getEmail());
         }else{
-            name2.setText("Name: null");
-            num2.setText("Contact: null");
-            email2.setText("Email: null");
+            name2.setVisibility(View.GONE);
+            num2.setVisibility(View.GONE);
+            email2.setVisibility(View.GONE);
+            coordinator2.setVisibility(View.GONE);
         }
     }
 
@@ -78,5 +77,6 @@ public class CoordinatorFragment extends Fragment {
         num2 = (TextView) itemView.findViewById(R.id.txt_codcontact2);
         email1 = (TextView) itemView.findViewById(R.id.txt_codemail);
         email2 = (TextView) itemView.findViewById(R.id.txt_codemail2);
+        coordinator2 = (TextView) itemView.findViewById(R.id.txt_cood2);
     }
 }
