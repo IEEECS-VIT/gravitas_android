@@ -39,7 +39,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.even
         for(int i=1;i<current.getOrgs().size();i++){
             organizers+=", "+current.getOrgs().get(i).getOrganization();
         }
-        holder.wishIcon.setImageResource(R.drawable.ic_circle_check);
+        holder.wishIcon.setImageResource(R.mipmap.ic_circle_check);
         holder.eventName.setText(current.getName());
         holder.clubName.setText(organizers);
     }
