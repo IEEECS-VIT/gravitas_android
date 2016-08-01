@@ -9,10 +9,16 @@
     tools:context="striker.gravitas_android.activities.About"
     tools:showIn="@layout/activity_about">
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:text="@string/large_text" />-->
+
+    <FrameLayout
+    android:id="@+id/about_fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
 
 </android.support.v4.widget.NestedScrollView>
