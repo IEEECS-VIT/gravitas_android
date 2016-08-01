@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public class Wishlist extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView textView;
     Realm realm;
+
+    ImageView delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

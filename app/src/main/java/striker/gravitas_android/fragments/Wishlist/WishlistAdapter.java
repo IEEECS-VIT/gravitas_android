@@ -1,6 +1,8 @@
 package striker.gravitas_android.fragments.Wishlist;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
 import striker.gravitas_android.R;
 import striker.gravitas_android.Utils.RecyclerViewOnClickListener;
 import striker.gravitas_android.models.Favourites;
@@ -60,13 +64,40 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.VH> {
 
     public class VH extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView clubName, eventName;
-        ImageView wishIcon;
+        ImageView wishIcon, delete;
 
         public VH(View itemView) {
             super(itemView);
             clubName = (TextView) itemView.findViewById(R.id.mtv_club);
             eventName = (TextView) itemView.findViewById(R.id.mtv_event);
             wishIcon = (ImageView) itemView.findViewById(R.id.imv_icon);
+            delete = (ImageView) itemView.findViewById(R.id.deleteIV);
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Delete event from favourites?");
+                    builder.setCancelable(true);
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            notifyItemRemoved(getAdapterPosition());
+
+                            Realm realm = Realm.getDefaultInstance();
+                            realm.beginTransaction();
+                            RealmResults<Favourites> fav = realm.where(Favourites.class).findAll();
+                            fav.get(getLayoutPosition()).deleteFromRealm();
+                            realm.commitTransaction();
+                            realm.close();
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", null);
+                    builder.show();
+                }
+            });
 
             itemView.setOnClickListener(this);
         }

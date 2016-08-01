@@ -12,7 +12,6 @@ import java.util.List;
 
 import striker.gravitas_android.R;
 import striker.gravitas_android.Utils.RecyclerViewOnClickListener;
-import striker.gravitas_android.Utils.dummyCategoryClass;
 import striker.gravitas_android.models.Event;
 
 /**
@@ -56,12 +55,14 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.even
 
     class eventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView clubName,eventName;
-        ImageView wishIcon;
+        ImageView wishIcon, delete;
         public eventViewHolder(View itemView) {
             super(itemView);
             clubName = (TextView) itemView.findViewById(R.id.mtv_club);
             eventName = (TextView) itemView.findViewById(R.id.mtv_event);
             wishIcon = (ImageView) itemView.findViewById(R.id.imv_icon);
+            delete = (ImageView) itemView.findViewById(R.id.deleteIV);
+            delete.setVisibility(View.GONE);
 
             itemView.setOnClickListener(this);
         }

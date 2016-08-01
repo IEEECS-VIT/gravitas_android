@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="event"
+            android:textColor="@color/Black"
             android:textSize="18sp"
             android:typeface="sans">
         </TextView>
@@ -39,11 +40,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="club"
-            android:textColor="#646464"
+            android:textColor="@color/LightBlack"
             android:textSize="12sp"
             android:typeface="sans">
 
         </TextView>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/deleteIV"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_delete_black_24dp" />
 
 </LinearLayout>
