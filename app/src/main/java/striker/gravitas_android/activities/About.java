@@ -4,6 +4,8 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +15,9 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
 import striker.gravitas_android.R;
+import striker.gravitas_android.fragments.AboutGravitasFragment;
+import striker.gravitas_android.fragments.AboutTeamFragment;
+import striker.gravitas_android.fragments.AboutUniversityFragment;
 
 public class About extends AppCompatActivity {
 
@@ -31,7 +36,6 @@ public class About extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         AppBarLayout appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_about);
         appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(width,height/3));
 
@@ -40,21 +44,63 @@ public class About extends AppCompatActivity {
         bottomBar.noTopOffset();
         bottomBar.setItems(R.menu.bottombar_about);
 
+
         bottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(int menuItemId) {
-
+                if(menuItemId==R.id.bottom_bar_about_gravitas){
+                    Fragment fragment = null;
+                    Class fragmentClass;
+                    fragmentClass = AboutGravitasFragment.class;
+                    try{
+                        fragment = (Fragment)fragmentClass.newInstance();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out).replace(R.id.about_fragment_container,fragment).commit();
+                }else if(menuItemId==R.id.bottom_bar_about_university){
+                    Fragment fragment = null;
+                    Class fragmentClass;
+                    fragmentClass = AboutUniversityFragment.class;
+                    try{
+                        fragment = (Fragment)fragmentClass.newInstance();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out).replace(R.id.about_fragment_container,fragment).commit();
+                }else if(menuItemId==R.id.bottom_bar_about_team){
+                    Fragment fragment = null;
+                    Class fragmentClass;
+                    fragmentClass = AboutTeamFragment.class;
+                    try{
+                        fragment = (Fragment)fragmentClass.newInstance();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out).replace(R.id.about_fragment_container,fragment).commit();
+                }
             }
 
             @Override
             public void onMenuTabReSelected(int menuItemId) {
+                if(menuItemId==R.id.bottom_bar_about_gravitas){
 
+                }else if(menuItemId==R.id.bottom_bar_about_university){
+
+                }else if(menuItemId==R.id.bottom_bar_about_team){
+
+                }
             }
         });
 
         bottomBar.mapColorForTab(0,ContextCompat.getColor(this,R.color.colorPrimary));
         bottomBar.mapColorForTab(1,ContextCompat.getColor(this,R.color.colorPrimary));
         bottomBar.mapColorForTab(2,ContextCompat.getColor(this,R.color.colorPrimary));
+
+
 
     }
 
