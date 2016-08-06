@@ -17,6 +17,8 @@ import android.view.View;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.List;
+
 import io.realm.Realm;
 import striker.gravitas_android.R;
 import striker.gravitas_android.fragments.detail.DetailPagerAdapter;
@@ -38,6 +40,8 @@ public class DetailActivity extends AppCompatActivity {
     DescriptionFragment descFragment;
     CoordinatorFragment coordinatorFragment;
     private View imgContainer;
+    List<Favourites> favourites;
+    Realm realm;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -81,6 +85,7 @@ public class DetailActivity extends AppCompatActivity {
 
 
         myFab = (FloatingActionButton) findViewById(R.id.fab);
+        fabIcon();
         myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 doMyThing();
@@ -88,9 +93,20 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
+    private void fabIcon() {
+        realm = Realm.getDefaultInstance();
+        favourites = realm.where(Favourites.class).equalTo("name", sent).findAll();
+        if (favourites.size() == 0){
+            myFab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_white));
+        }else{
+            myFab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_white_filled));
+        }
+    }
+
     private void doMyThing() {
         descFragment.postEventFab();
-        myFab.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_fav_white));
+        //myFab.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_fav_white));
+        myFab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_white_filled));
         Snackbar.make(findViewById(R.id.root_coordinator), "Added to Wishlist", Snackbar.LENGTH_LONG).show();
 
     }

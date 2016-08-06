@@ -2,6 +2,7 @@ package striker.gravitas_android.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.v4.content.ContextCompat;
 
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class Wishlist extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView textView;
     Realm realm;
-
+    FloatingActionButton fab;
     ImageView delete;
 
     @Override
@@ -42,6 +44,7 @@ public class Wishlist extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_wishlist);
         textView = (TextView) findViewById(R.id.noFav);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
 
         realm = Realm.getDefaultInstance();
         favourites = realm.where(Favourites.class).findAll();

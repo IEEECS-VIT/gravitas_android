@@ -48,7 +48,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.VH> {
         }
         holder.eventName.setText(favourite.getName());
         holder.clubName.setText(organizers);
-        holder.wishIcon.setImageResource(R.drawable.ic_circle_check);
+        holder.wishIcon.setImageResource(R.mipmap.ic_circle_check);
     }
 
 
