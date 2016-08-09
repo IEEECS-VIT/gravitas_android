@@ -1,6 +1,7 @@
 package striker.gravitas_android.fragments.about;
 
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -56,7 +57,19 @@ public class AboutTeamFragment extends Fragment {
             teamMemberList.add(teamMember);
         }*/
 
-        
+        String[] names = {"Shivam Mathur","Ayush Agarwal","Aditya Rola","Sulabh Agarwal","Waris Chutani","Tushar Narula","Prateek Tank","Saurabh Mathur","Harshal Varday","Tanisha Chawla","Sakshi Anand","Mustafa Yusuf","Rutuja Jadhav","Vansh"};
+        String[] drawableId = new String[14];
+        for (int i=0;i<14;i++) {
+            drawableId[i] = "x" + i;
+        }
+
+        TeamMember teamMember;
+
+        for (int i=0;i<14;i++) {
+            int resId = getResources().getIdentifier(drawableId[i],"drawable",getActivity().getPackageName());
+            teamMember = new TeamMember(names[i],resId);
+            teamMemberList.add(teamMember);
+        }
 
     }
 
