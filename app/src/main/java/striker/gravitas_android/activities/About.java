@@ -7,17 +7,19 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Display;
+import android.widget.ScrollView;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
 import striker.gravitas_android.R;
-import striker.gravitas_android.fragments.AboutGravitasFragment;
-import striker.gravitas_android.fragments.AboutTeamFragment;
-import striker.gravitas_android.fragments.AboutUniversityFragment;
+import striker.gravitas_android.fragments.about.AboutGravitasFragment;
+import striker.gravitas_android.fragments.about.AboutTeamFragment;
+import striker.gravitas_android.fragments.about.AboutUniversityFragment;
 
 public class About extends AppCompatActivity {
 
@@ -38,7 +40,8 @@ public class About extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         AppBarLayout appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_about);
         appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(width,height/3));
-
+        NestedScrollView scrollView = (NestedScrollView)findViewById(R.id.about_nested_scrolling);
+        scrollView.setSmoothScrollingEnabled(true);
         bottomBar = BottomBar.attachShy((CoordinatorLayout) findViewById(R.id.about_coordinator),findViewById(R.id.about_nested_scrolling),savedInstanceState);
         bottomBar.setMaxFixedTabs(2);
         bottomBar.noTopOffset();
