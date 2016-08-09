@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/member_image"
-        android:layout_centerHorizontal="true"/>
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/member_name"
-        android:layout_below="@+id/member_image"
-        android:layout_centerHorizontal="true" />
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingRight="1dp"
+        android:paddingEnd="1dp">
 
-</RelativeLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/member_image"
+            app:civ_border_width="4dp"
+            app:civ_border_color="#ededed"/>
+
+        <!--<ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/member_image" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/member_name"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"/>
+
+    </LinearLayout>
+</LinearLayout>

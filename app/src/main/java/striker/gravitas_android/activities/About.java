@@ -61,7 +61,7 @@ public class About extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out).replace(R.id.about_fragment_container,fragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container,fragment).commit();
                 }else if(menuItemId==R.id.bottom_bar_about_university){
                     Fragment fragment = null;
                     Class fragmentClass;
@@ -72,7 +72,7 @@ public class About extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out).replace(R.id.about_fragment_container,fragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container,fragment).commit();
                 }else if(menuItemId==R.id.bottom_bar_about_team){
                     Fragment fragment = null;
                     Class fragmentClass;
@@ -83,7 +83,7 @@ public class About extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out).replace(R.id.about_fragment_container,fragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container,fragment).commit();
                 }
             }
 

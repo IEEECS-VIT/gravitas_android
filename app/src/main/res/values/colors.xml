@@ -11,8 +11,8 @@
     <color name="Black">#000000</color>
 
     <color name="bulb_splash_screen">#ffae17</color>
-    <color name="bulb_splash_screen_trace">#ffffff</color>
-    <color name="bulb_splash_screen_residue">#bcb8b1</color>
+    <color name="bulb_splash_screen_trace">#f7b437</color>
+    <color name="bulb_splash_screen_residue">#ffc867</color>
 
     <integer-array name="color_bulb_svg">
         <item>@color/bulb_splash_screen</item>

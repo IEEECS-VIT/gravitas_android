@@ -1,9 +1,12 @@
 package striker.gravitas_android.fragments.about;
 
+import android.media.Image;
+import android.support.v4.util.CircularArray;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;

@@ -40,15 +40,24 @@ public class AboutTeamFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(teamAdapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
         getData();
         return v;
     }
 
     private void getData(){
 
-        //TODO ENTER DATA HERE
+        /*//TODO ENTER DATA HERE
         TeamMember teamMember = new TeamMember("Sample Name",R.drawable.graivtas16);
         teamMemberList.add(teamMember);
+
+        for(int i=0;i<30;i++){
+            teamMember = new TeamMember("Sample Name",R.drawable.graivtas16);
+            teamMemberList.add(teamMember);
+        }*/
+
+        
+
     }
 
 }
