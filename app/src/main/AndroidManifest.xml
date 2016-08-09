@@ -14,22 +14,22 @@
         <activity
             android:name=".activities.Splashscreen"
             android:screenOrientation="portrait">
-            android:screenOrientation="portrait"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Home" />
+        <activity android:name=".activities.Home"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.CategoryActivity"
-            android:parentActivityName=".activities.Home"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+        android:parentActivityName=".activities.Home" />
         <activity
             android:name=".activities.DetailActivity"
-            android:parentActivityName=".activities.CategoryActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activities.CategoryActivity" />
         <activity
             android:name=".activities.Wishlist"
             android:label="@string/title_activity_wishlist"
@@ -38,6 +38,7 @@
         <activity
             android:name=".activities.About"
             android:label="@string/title_activity_about"
+            android:screenOrientation="portrait"
             android:parentActivityName=".activities.Home"
             android:theme="@style/AppTheme">
             <meta-data
