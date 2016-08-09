@@ -39,9 +39,9 @@ public class DetailActivity extends AppCompatActivity {
     boolean isFab = false;
     DescriptionFragment descFragment;
     CoordinatorFragment coordinatorFragment;
-    private View imgContainer;
     List<Favourites> favourites;
     Realm realm;
+    private View imgContainer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,7 +76,7 @@ public class DetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        collapsingToolbarLayout.setTitle(sent);
+        collapsingToolbarLayout.setTitle("");
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
         collapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(this,R.color.colorPrimary));
 

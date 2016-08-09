@@ -18,7 +18,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,7 +25,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 
 import striker.gravitas_android.R;
+import striker.gravitas_android.fragments.LicensesFragment;
 import striker.gravitas_android.models.Event;
 import striker.gravitas_android.navigationDrawer.adapter.CustomExpandableListAdapter;
 import striker.gravitas_android.navigationDrawer.datasource.ExpandableListDataSource;
@@ -205,6 +204,8 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
                 } else if (mExpandableListTitle.get(groupPosition).equals("Wishlist")) {
                     Intent i = new Intent(getBaseContext(), Wishlist.class);
                     startActivity(i);
+                } else if (mExpandableListTitle.get(groupPosition).equals("Licenses")) {
+                    LicensesFragment.displayLicensesFragment(getSupportFragmentManager());
                 }
 
                 //getSupportActionBar().setTitle(mExpandableListTitle.get(groupPosition).toString());

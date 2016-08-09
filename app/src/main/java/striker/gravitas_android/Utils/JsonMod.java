@@ -46,9 +46,15 @@ public class JsonMod {
                 jsonObject1.addProperty("name", tempName);
             }
 
+
             if (jsonObject1.get("category").getAsString().equalsIgnoreCase("workshop")) {
                 jsonObject1.remove("subCategory");
                 jsonObject1.addProperty("subCategory", "workshop");
+            } else {
+                String tempSubCategory = jsonObject1.get("subCategory").getAsString();
+                jsonObject1.remove("subCategory");
+                jsonObject1.addProperty("subCategory", tempSubCategory.toLowerCase());
+
             }
         }
         Log.d("Json", data.toString());

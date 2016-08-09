@@ -75,10 +75,9 @@ public class EventListFragment extends Fragment {
     private void populateDummyClass() {
         Realm realm = Realm.getDefaultInstance();
         String[] currentTab = getResources().getStringArray(R.array.Categories);
-        events = realm.where(Event.class).equalTo("subCategory", "workshop").findAll();
-        Log.d("CheckDb", events.get(0).getCoordinators().get(0).toString());
-        Log.d("CheckDb", events.toString());
+        events = realm.where(Event.class).equalTo("subCategory", "Workshop").findAll();
         events = realm.where(Event.class).equalTo("subCategory",currentTab[category].toLowerCase()).findAll();
+        Log.d("CheckDb", events.toString());
        /* dummyList.clear();
         for(int i=0;i<events.size();i++){
             orgs = events.get(i).getOrgs();

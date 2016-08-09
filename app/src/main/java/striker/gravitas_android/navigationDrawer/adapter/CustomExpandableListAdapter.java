@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -86,9 +87,30 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter{
         if (convertView == null) {
             convertView = mLayoutInflater.inflate(R.layout.navigation_list_group, null);
         }
+
+        ImageView listImageView = (ImageView) convertView.findViewById(R.id.navigationImageView);
         TextView listTitleTextView = (TextView) convertView
                 .findViewById(R.id.listTitle);
-        listTitleTextView.setTypeface(null, Typeface.BOLD);
+
+        switch (listTitle) {
+            case "Licenses":
+                listImageView.setImageResource(R.drawable.ic_developer_mode_black_18dp);
+                break;
+            case "Wishlist":
+                listImageView.setImageResource(R.drawable.ic_favorite_black_18dp);
+                break;
+            case "Contact Us":
+                listImageView.setImageResource(R.drawable.ic_email_black_18dp);
+                break;
+            case "About Gravitas":
+                listImageView.setImageResource(R.drawable.ic_info_black_18dp);
+                break;
+            case "Categories":
+                listImageView.setImageResource(R.drawable.ic_format_list_bulleted_black_18dp);
+                break;
+
+        }
+        listTitleTextView.setTypeface(null, Typeface.NORMAL);
         listTitleTextView.setText(listTitle);
         mExpandableListView = (ExpandableListView) parent.findViewById(R.id.navList);
         if (getChildrenCount(listPosition) == 0){
