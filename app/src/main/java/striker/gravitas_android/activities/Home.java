@@ -61,7 +61,7 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
     private FloatingActionButton myFab;
     private CircleLayout cl;
 
-    private TextView textViewHome;
+    private TextView textViewHome,textViewTheme,textViewDate;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
