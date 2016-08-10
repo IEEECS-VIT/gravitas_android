@@ -1,7 +1,6 @@
 package striker.gravitas_android.fragments.about;
 
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -10,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +58,7 @@ public class AboutTeamFragment extends Fragment {
             teamMemberList.add(teamMember);
         }*/
 
-        String[] names = {"Shivam Mathur\nhttps://github.com/BurnUalive","Ayush Agarwal\nhttps://github.com/ayushagarwal95","Aditya Rola\nadityarola@hotmail.com","Sulabh Agarwal\nhttps://github.com/SulabhAgarwal","Waris Chutani\nhttps://github.com/waris0023","Tushar Narula\nhttps://github.com/drenaw","Prateek Tank\nprateektank120@gmail.com","Saurabh Mathur\nhttps://github.com/saurabhmathur96","Harshal Varday\nhttps://github.com/hvarday","Tanisha Chawla\nhttps://github.com/TanishaChawla","Sakshi Anand\nhttps://github.com/sakshianand","Mustafa Yusuf\nhttps://github.com/myc52","Rutuja Jadhav\nhttps://github.com/RutujaJadhav","Vansh\nhttps://github.com/vansh1sh"};
+        String[] names = {"Shivam Mathur\nhttps://github.com/BurnUalive", "Ayush Agarwal\nhttps://github.com/ayushagarwal95", "Aditya Rola\nadityarola@hotmail.com", "Sulabh Agarwal\nhttps://github.com/SulabhAgarwal", "Waris Chutani\nhttps://github.com/waris0023", "Tushar Narula\nhttps://github.com/drenaw", "Prateek Tank\nhttps://github.com/Str1k3-r", "Saurabh Mathur\nhttps://github.com/saurabhmathur96", "Harshal Varday\nhttps://github.com/hvarday", "Tanisha Chawla\nhttps://github.com/TanishaChawla", "Sakshi Anand\nhttps://github.com/sakshianand", "Mustafa Yusuf\nhttps://github.com/myc52", "Rutuja Jadhav\nhttps://github.com/RutujaJadhav", "Vansh\nhttps://github.com/vansh1sh"};
         String[] drawableId = new String[14];
         for (int i=0;i<14;i++) {
             drawableId[i] = "x" + i;
