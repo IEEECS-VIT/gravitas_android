@@ -40,7 +40,7 @@ public class About extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         AppBarLayout appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_about);
         appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(width,height/3));
-        NestedScrollView scrollView = (NestedScrollView)findViewById(R.id.about_nested_scrolling);
+        final NestedScrollView scrollView = (NestedScrollView)findViewById(R.id.about_nested_scrolling);
         scrollView.setSmoothScrollingEnabled(true);
         bottomBar = BottomBar.attachShy((CoordinatorLayout) findViewById(R.id.about_coordinator),findViewById(R.id.about_nested_scrolling),savedInstanceState);
         bottomBar.setMaxFixedTabs(2);
@@ -90,11 +90,11 @@ public class About extends AppCompatActivity {
             @Override
             public void onMenuTabReSelected(int menuItemId) {
                 if(menuItemId==R.id.bottom_bar_about_gravitas){
-
+                    scrollView.fullScroll(NestedScrollView.FOCUS_UP);
                 }else if(menuItemId==R.id.bottom_bar_about_university){
-
+                    scrollView.fullScroll(NestedScrollView.FOCUS_UP);
                 }else if(menuItemId==R.id.bottom_bar_about_team){
-
+                    scrollView.fullScroll(NestedScrollView.FOCUS_UP);
                 }
             }
         });

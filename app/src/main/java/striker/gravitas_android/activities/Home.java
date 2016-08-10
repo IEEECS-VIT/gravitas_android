@@ -77,7 +77,7 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
         cl.setLayoutParams(clParams);
 
         textViewHome = (TextView)findViewById(R.id.category_name_home);
-        textViewHome.setPadding(0,height/3 - 2*width/10 + 50,0,0);
+        textViewHome.setPadding(0,height/3 - 2*width/10 + 60,0,0);
         textViewHome.setText("Rotate");
 
         cl.setOnItemClickListener(this);
@@ -188,9 +188,9 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
                     mDrawerLayout.closeDrawer(GravityCompat.START);
                     Intent sendIntent = new Intent(Intent.ACTION_VIEW);
                     sendIntent.setType("plain/text");
-                    sendIntent.setData(Uri.parse("test@gmail.com"));
+                    sendIntent.setData(Uri.parse("tushar.narula17@live.com"));
                     sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-                    sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "test@gmail.com" });
+                    sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "tushar.narula17@live.com" });
                     try {
                         sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback :: Gravitas'16 Android App" + getPackageManager().getPackageInfo(getPackageName(),0).versionName);
                     } catch (PackageManager.NameNotFoundException e) {

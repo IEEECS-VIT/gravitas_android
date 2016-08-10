@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.jrummyapps.android.widget.AnimatedSvgView;
+import com.szugyi.circlemenu.view.CircleImageView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +33,7 @@ public class Splashscreen extends AppCompatActivity implements Values{
 
     private AnimatedSvgView animatedSvgView;
     private int index = -1;
+    private CircleImageView circleImageView;
 
 
     @Override
@@ -61,7 +63,6 @@ public class Splashscreen extends AppCompatActivity implements Values{
             }
         },300);
         //Network request takes longer than timeout set.
-
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -74,6 +75,8 @@ public class Splashscreen extends AppCompatActivity implements Values{
             }
         }, timeout);
     }
+
+    
 
     public String loadJSONFromAsset() {
         String json = null;
