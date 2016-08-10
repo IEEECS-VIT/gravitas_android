@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/bottom_bar_about_gravitas"
-        android:title="Gravitas"
+        android:title="graVITas"
         android:icon="@drawable/ic_bottom_bar_about_gravitas"/>
     <item
         android:id="@+id/bottom_bar_about_university"
@@ -10,6 +10,10 @@
         android:icon="@drawable/ic_bottom_bar_about_university"/>
     <item
         android:id="@+id/bottom_bar_about_team"
-        android:title="Team"
+        android:title="Developers"
         android:icon="@drawable/ic_bottom_bar_about_team"/>
+    <item
+        android:id="@+id/bottom_bar_about_team2"
+        android:title="Team"
+        android:icon="@drawable/ic_bottom_bar_about_team2"/>
 </menu>

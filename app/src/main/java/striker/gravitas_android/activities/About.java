@@ -18,6 +18,7 @@ import com.roughike.bottombar.OnMenuTabClickListener;
 
 import striker.gravitas_android.R;
 import striker.gravitas_android.fragments.about.AboutGravitasFragment;
+import striker.gravitas_android.fragments.about.AboutTeam2Fragment;
 import striker.gravitas_android.fragments.about.AboutTeamFragment;
 import striker.gravitas_android.fragments.about.AboutUniversityFragment;
 
@@ -43,7 +44,7 @@ public class About extends AppCompatActivity {
         final NestedScrollView scrollView = (NestedScrollView)findViewById(R.id.about_nested_scrolling);
         scrollView.setSmoothScrollingEnabled(true);
         bottomBar = BottomBar.attachShy((CoordinatorLayout) findViewById(R.id.about_coordinator),findViewById(R.id.about_nested_scrolling),savedInstanceState);
-        bottomBar.setMaxFixedTabs(2);
+        bottomBar.setMaxFixedTabs(3);
         bottomBar.noTopOffset();
         bottomBar.setItems(R.menu.bottombar_about);
 
@@ -77,6 +78,17 @@ public class About extends AppCompatActivity {
                     Fragment fragment = null;
                     Class fragmentClass;
                     fragmentClass = AboutTeamFragment.class;
+                    try{
+                        fragment = (Fragment)fragmentClass.newInstance();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container,fragment).commit();
+                }else if(menuItemId==R.id.bottom_bar_about_team2){
+                    Fragment fragment = null;
+                    Class fragmentClass;
+                    fragmentClass = AboutTeam2Fragment.class;
                     try{
                         fragment = (Fragment)fragmentClass.newInstance();
                     }catch (Exception e){
