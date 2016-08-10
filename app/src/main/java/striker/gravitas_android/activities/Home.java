@@ -117,7 +117,7 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
 
     @Override
     public void onItemSelected(View view) {
-        String f = view.getContentDescription() + "\nClick to know more";
+        String f = view.getContentDescription() + "\nClick icon to know more";
         textViewHome.setText(f);
     }
 
