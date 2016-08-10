@@ -19,4 +19,26 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"/>
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gravitas_date"
+        android:id="@+id/gravitas_theme"
+        android:layout_centerHorizontal="true"
+        android:text="@string/gravitas_theme"
+        android:textAlignment="center"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="50dp"
+        android:id="@+id/gravitas_date"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/gravitas_date"
+        android:textAlignment="center"/>
+
+
 </RelativeLayout>

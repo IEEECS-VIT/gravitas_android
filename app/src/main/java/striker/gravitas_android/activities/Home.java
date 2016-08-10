@@ -18,6 +18,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -117,8 +118,8 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
 
     @Override
     public void onItemSelected(View view) {
-        String f = view.getContentDescription() + "\nClick icon to know more";
-        textViewHome.setText(f);
+        String f = "<b>" + view.getContentDescription() + "</b>"+ "<br/>Click icon to know more";
+        textViewHome.setText(Html.fromHtml(f));
     }
 
     @Override
@@ -217,6 +218,35 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
         mExpandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
             @Override
             public void onGroupCollapse(int groupPosition) {
+                if(mExpandableListTitle.get(groupPosition).equals("Categories")){
+
+                }else if(mExpandableListTitle.get(groupPosition).equals("Contact Us")){
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                    Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                    sendIntent.setType("plain/text");
+                    sendIntent.setData(Uri.parse("tushar.narula17@live.com"));
+                    sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
+                    sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "tushar.narula17@live.com" });
+                    try {
+                        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback :: Gravitas'16 Android App" + getPackageManager().getPackageInfo(getPackageName(),0).versionName);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, "");
+                    startActivity(sendIntent);
+                }else if(mExpandableListTitle.get(groupPosition).equals("About Gravitas")){
+                    Intent i = new Intent(getBaseContext(),About.class);
+                    startActivity(i);
+                } else if (mExpandableListTitle.get(groupPosition).equals("Wishlist")) {
+                    Intent i = new Intent(getBaseContext(), Wishlist.class);
+                    startActivity(i);
+                } else if (mExpandableListTitle.get(groupPosition).equals("Licenses")) {
+                    LicensesFragment.displayLicensesFragment(getSupportFragmentManager());
+                }
+
+                //getSupportActionBar().setTitle(mExpandableListTitle.get(groupPosition).toString());
+                //mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString());
+                //
             }
         });
 
