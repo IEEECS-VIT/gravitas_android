@@ -108,6 +108,9 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter{
             case "Categories":
                 listImageView.setImageResource(R.drawable.ic_format_list_bulleted_black_18dp);
                 break;
+            case "Register":
+                listImageView.setImageResource(R.drawable.ic_public_black_48dp);
+                break;
 
         }
         listTitleTextView.setTypeface(null, Typeface.NORMAL);

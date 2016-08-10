@@ -5,6 +5,6 @@ package striker.gravitas_android.Utils;
  */
 public interface Values {
 
-    public String baseUrl = "https://register.vitgravitas.com";
+    public String baseUrl = "http://register.vitgravitas.com/";
 
 }

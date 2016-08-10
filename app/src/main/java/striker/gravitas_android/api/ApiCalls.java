@@ -10,6 +10,6 @@ import retrofit2.http.GET;
  */
 public interface ApiCalls {
 
-    @GET("/api/events/name?q=")
+    @GET("api/events/name?q=")
     Call<JsonObject> dbCallback();
 }

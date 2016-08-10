@@ -242,6 +242,9 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
                     startActivity(i);
                 } else if (mExpandableListTitle.get(groupPosition).equals("Licenses")) {
                     LicensesFragment.displayLicensesFragment(getSupportFragmentManager());
+                } else if (mExpandableListTitle.get(groupPosition).equals("Register")) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://register.vitgravitas.com/external/register")));
+
                 }
 
                 //getSupportActionBar().setTitle(mExpandableListTitle.get(groupPosition).toString());
