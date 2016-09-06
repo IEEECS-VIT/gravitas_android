@@ -22,6 +22,7 @@
     <string-array name="Wishlist"></string-array>
 
     <string-array name="Categories">
+        <item>Premium</item>
         <item>Workshop</item>
         <item>Speaking / Management</item>
         <item>Bio / Chemical</item>

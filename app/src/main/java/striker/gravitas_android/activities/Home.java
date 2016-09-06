@@ -88,7 +88,7 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
 
 
         final String[] subCategories = getResources().getStringArray(R.array.Categories);
-        final int[] iconsCategories = {R.mipmap.ic_category_workshop,R.mipmap.ic_category_debate_discussion,R.mipmap.ic_category_chemical_bio,R.mipmap.ic_category_robotics,R.mipmap.ic_category_circuitrix,R.mipmap.ic_category_builtrix,R.mipmap.ic_category_quiz,R.mipmap.ic_category_applied_engineering,R.mipmap.ic_category_online, R.mipmap.ic_category_informals,R.mipmap.ic_category_bits_and_bytes};
+        final int[] iconsCategories = {R.mipmap.ic_category_premium,R.mipmap.ic_category_workshop,R.mipmap.ic_category_debate_discussion,R.mipmap.ic_category_chemical_bio,R.mipmap.ic_category_robotics,R.mipmap.ic_category_circuitrix,R.mipmap.ic_category_builtrix,R.mipmap.ic_category_quiz,R.mipmap.ic_category_applied_engineering,R.mipmap.ic_category_online, R.mipmap.ic_category_informals,R.mipmap.ic_category_bits_and_bytes};
 
         for(int i=0;i<subCategories.length;i++){
             final CircleImageView civ = new CircleImageView(getApplicationContext());
