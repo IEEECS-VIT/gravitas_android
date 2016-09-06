@@ -122,9 +122,19 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
         textViewHome.setText(Html.fromHtml(f));
     }
 
+
+
     @Override
     public void onRotationFinished(View view) {
-
+        view.setLayoutParams(new CircleLayout.LayoutParams(145,145));
+        final View tview = view;
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tview.setLayoutParams(new CircleLayout.LayoutParams(125,125));
+            }
+        },100);
     }
 
     private void setNavigationDrawer() {
