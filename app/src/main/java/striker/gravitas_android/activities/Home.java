@@ -199,7 +199,7 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
                     }
                     sendIntent.putExtra(Intent.EXTRA_TEXT, "");
                     startActivity(sendIntent);
-                }else if(mExpandableListTitle.get(groupPosition).equals("About Gravitas")){
+                }else if(mExpandableListTitle.get(groupPosition).equals("About")){
                     Intent i = new Intent(getBaseContext(),About.class);
                     startActivity(i);
                 } else if (mExpandableListTitle.get(groupPosition).equals("Wishlist")) {

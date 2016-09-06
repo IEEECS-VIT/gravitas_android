@@ -102,7 +102,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter{
             case "Contact Us":
                 listImageView.setImageResource(R.drawable.ic_email_black_18dp);
                 break;
-            case "About Gravitas":
+            case "About":
                 listImageView.setImageResource(R.drawable.ic_info_black_18dp);
                 break;
             case "Categories":
