@@ -45,6 +45,7 @@ public class Splashscreen extends AppCompatActivity implements Values{
         gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setExclusionStrategies(new RealmExclusionStrategy()).create();
         String json = loadJSONFromAsset();
         Db db = gson.fromJson(jsonMod.modifyJson(gson.fromJson(json,JsonObject.class)), Db.class);
+
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         realm.copyToRealmOrUpdate(db);

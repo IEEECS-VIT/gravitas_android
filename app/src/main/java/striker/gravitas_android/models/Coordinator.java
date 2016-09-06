@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by root on 24/7/16.
@@ -13,6 +12,8 @@ public class Coordinator extends RealmObject {
 
     private int k;
 
+    private int j;
+
     @SerializedName("phone")
     @Expose
     private String phone;
@@ -20,11 +21,6 @@ public class Coordinator extends RealmObject {
     @SerializedName("name")
     @Expose
     private String name;
-
-    @PrimaryKey
-    @SerializedName("reg_no")
-    @Expose
-    private String reg_no;
 
     @SerializedName("_id")
     @Expose
@@ -35,10 +31,10 @@ public class Coordinator extends RealmObject {
     private String email;
 
 
-    public Coordinator(String phone, String name, String reg_no, String cid, String email) {
+    public Coordinator(String phone, String name, String cid, String email) {
         this.phone = phone;
         this.name = name;
-        this.reg_no = reg_no;
+
         this.cid = cid;
         this.email = email;
     }
@@ -63,13 +59,6 @@ public class Coordinator extends RealmObject {
         this.name = name;
     }
 
-    public String getReg_no() {
-        return reg_no;
-    }
-
-    public void setReg_no(String reg_no) {
-        this.reg_no = reg_no;
-    }
 
     public String getCid() {
         return cid;

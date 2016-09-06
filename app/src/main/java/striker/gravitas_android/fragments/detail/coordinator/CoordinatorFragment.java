@@ -2,7 +2,6 @@ package striker.gravitas_android.fragments.detail.coordinator;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,11 +43,7 @@ public class CoordinatorFragment extends Fragment {
 
         Realm realm = Realm.getDefaultInstance();
         event = realm.where(Event.class).equalTo("name", eventName).findFirst();
-        Log.d("Selected",event.toString());
         coordinator = event.getCoordinators();
-        Log.d("Selected", event.toString());
-        Log.d("EventName",eventName);
-        Log.d("Coordinator",coordinator.get(0).toString());
         if(coordinator.get(0) != null) {
             name1.setText("Name: " + coordinator.get(0).getName());
             num1.setText("Contact: " + coordinator.get(0).getPhone());

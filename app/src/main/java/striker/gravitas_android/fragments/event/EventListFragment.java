@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,7 +76,6 @@ public class EventListFragment extends Fragment {
         String[] currentTab = getResources().getStringArray(R.array.Categories);
         events = realm.where(Event.class).equalTo("subCategory", "Workshop").findAll();
         events = realm.where(Event.class).equalTo("subCategory",currentTab[category].toLowerCase()).findAll();
-        Log.d("CheckDb", events.toString());
        /* dummyList.clear();
         for(int i=0;i<events.size();i++){
             orgs = events.get(i).getOrgs();

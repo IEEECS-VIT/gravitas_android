@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Space;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -68,7 +67,6 @@ public class DescriptionFragment extends Fragment {
 
         Realm realm = Realm.getDefaultInstance();
         event = realm.where(Event.class).equalTo("name", eventName).findFirst();
-        Log.d("Selected",event.toString());
         name.setText("Name: " + event.getName());
         category.setText("Category: " + event.getSubCategory());
         teamSize.setText("Team Size: " + String.valueOf(event.getTeamSize()));

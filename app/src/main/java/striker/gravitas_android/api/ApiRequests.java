@@ -35,7 +35,7 @@ public class ApiRequests implements Values {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().connectTimeout(50, TimeUnit.SECONDS)
-                .readTimeout(50, TimeUnit.SECONDS).addInterceptor(interceptor).build();
+                .readTimeout(50, TimeUnit.SECONDS).build();
 
 
         retrofit = new Retrofit.Builder()
@@ -54,13 +54,15 @@ public class ApiRequests implements Values {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 String json = jsonMod.modifyJson(response.body());
+                Log.d("JSON", json);
+
                 Db db = gson.fromJson(json, Db.class);
                 Realm realm = Realm.getDefaultInstance();
                 realm.beginTransaction();
+
                 realm.copyToRealmOrUpdate(db);
                 realm.commitTransaction();
                 realm.close();
-
             }
 
             @Override
