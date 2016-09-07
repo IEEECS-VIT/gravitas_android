@@ -40,4 +40,5 @@ dependencies {
     compile 'com.github.szugyi:Android-CircleMenu:1.1.2'
     compile 'com.roughike:bottom-bar:1.4.0.1'
     compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.github.thorbenprimke:realm-searchview:0.9.6'
 }

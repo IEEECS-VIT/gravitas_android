@@ -14,9 +14,11 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Display;
@@ -36,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import io.realm.Realm;
 import striker.gravitas_android.R;
 import striker.gravitas_android.fragments.LicensesFragment;
 import striker.gravitas_android.models.Event;
@@ -349,10 +352,13 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        // as you specify a parent activity in AndroidManif
 
-
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                Intent i = new Intent(getBaseContext(), SearchActivity.class);
+                startActivity(i);
+        }
         // Activate the navigation drawer toggle
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;

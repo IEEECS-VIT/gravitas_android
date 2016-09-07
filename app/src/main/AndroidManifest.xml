@@ -17,19 +17,21 @@
             android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Home"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.Home"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.CategoryActivity"
-            android:screenOrientation="portrait"
-        android:parentActivityName=".activities.Home" />
+            android:parentActivityName=".activities.Home"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.DetailActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".activities.CategoryActivity" />
+            android:parentActivityName=".activities.CategoryActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Wishlist"
             android:label="@string/title_activity_wishlist"
@@ -38,7 +40,16 @@
         <activity
             android:name=".activities.About"
             android:label="@string/title_activity_about"
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="striker.gravitas_android.activities.Home" />
+        </activity>
+        <activity
+            android:name=".activities.SearchActivity"
+            android:label="@string/title_activity_search"
             android:parentActivityName=".activities.Home"
             android:theme="@style/AppTheme">
             <meta-data
