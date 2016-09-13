@@ -202,7 +202,7 @@ public class Home extends AppCompatActivity implements CircleLayout.OnItemSelect
                     mDrawerLayout.closeDrawer(GravityCompat.START);
                     Intent sendIntent = new Intent(Intent.ACTION_VIEW);
                     sendIntent.setType("plain/text");
-                    sendIntent.setData(Uri.parse("tushar.narula17@live.com"));
+                    sendIntent.setData(Uri.parse("tushar.narula17@live.com;convenor.gravitas16@vit.ac.in"));
                     sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
                     sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "tushar.narula17@live.com" });
                     try {
